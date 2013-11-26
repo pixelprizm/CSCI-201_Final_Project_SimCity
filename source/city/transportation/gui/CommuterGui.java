@@ -67,9 +67,9 @@ public class CommuterGui implements Gui {
 		System.out.println("destination X: " + placeX(destination));
 		System.out.println("destination Y: " + placeY(destination));
 		
-	//	currentPosition = new Position(placeX(destination), placeY(destination));
-	//	currentPosition.moveInto(_traversal.getGrid());
-	//	guiMoveFromCurrentPositionTo(new Position(placeX(destination), placeY(destination)));
+		currentPosition = new Position(placeX(destination), placeY(destination));
+		currentPosition.moveInto(_traversal.getGrid());
+		guiMoveFromCurrentPositionTo(new Position(placeX(destination), placeY(destination)));
 		
 		_xDestination = placeX(destination);
 		_yDestination = placeY(destination);
