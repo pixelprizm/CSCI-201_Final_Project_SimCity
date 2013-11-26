@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
+import aStar.AStarTraversal;
 import city.Time;
 import city.transportation.gui.BusAgentGui;
 import city.transportation.gui.CommuterGui;
@@ -21,40 +22,56 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 @SuppressWarnings("serial")
 public class WorldView extends JPanel implements MouseListener, ActionListener 
 {
 	private static int WINDOWX = 1024 * 2 / 3;
 	private static int WINDOWY = 720 / 2;
+	
+	static int gridX = 682;
+	static int gridY = 360;
+	Semaphore[][] grid = new Semaphore[gridX+1][gridY+1];
 
     private List<Gui> guis = new ArrayList<Gui>();
 	
 	ArrayList<WorldViewBuilding> buildings;
-	ArrayList<Lane> lanes;
 	
 	public WorldView()
 	{
 		this.setPreferredSize(new Dimension(WINDOWX, WINDOWY));
 		this.setBorder(BorderFactory.createTitledBorder("World View"));
 		 buildings = new ArrayList<WorldViewBuilding>();
-		 
-		lanes = new ArrayList<Lane>();
-		/*Lane l = new Lane(200, 10, 10, 310, 0, 1, false, Color.gray, Color.black );
-		lanes.add( l );
-		l = new Lane(210, 10, 10, 310, 0, 1, false, Color.gray, Color.black );
-		lanes.add( l );
-		
-		l = new Lane(420, 240, 180, 10, 1, 0, true, Color.green, Color.black );
-		lanes.add( l );
-		l = new Lane(420, 250, 180, 10, 1, 0, true, Color.green, Color.black );
-		lanes.add( l );*/
-		
-		/*if ( count % 40 == 0 ) {
-			Lane l = lanes.get(0);
-			l.addVehicle( new Vehicle( 15, 15, 16, 16) );
-		} */
          
+		 for (int i=0; i<gridX+1 ; i++){
+	         for (int j = 0; j<gridY+1; j++){
+	             grid[i][j]=new Semaphore(1,true); //exclude buildings
+	         }
+		 }
+		 
+		 try{
+		 for (int j=0; j<gridY+1; j++) {grid[0][0+j].acquire();} // cant go to row 0 or col 0
+	     for (int k=1; k<gridX+1; k++) {grid[0+k][0].acquire();}
+		 } catch (Exception e){
+			 System.out.println("Unexpected Exception");
+			 e.printStackTrace();
+		 }
+		 
+		 for ( int i=0; i<buildings.size(); i++ ) {
+             WorldViewBuilding b = buildings.get(i);
+             for(int j = 0; j < b.height;j++){
+            	 for(int k = 0; k < b.width; k++){
+            		 try {
+						grid[b.xPosition()+k][b.yPosition()+j].acquire();
+					} catch (InterruptedException e) {
+						System.out.println("Unexpected error");
+						e.printStackTrace();
+					}
+            	 }
+             }
+     }	
+	     
          addMouseListener( this );
 
      	Timer timer = new Timer(10, this);
@@ -120,10 +137,6 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
             }
         } 
         
-        for ( int i=0; i<lanes.size(); i++ ) {
-			Lane l = lanes.get(i);
-			l.draw( g2 );
-		}
 	}
 	
 	public ArrayList<WorldViewBuilding> getBuildings() {
@@ -171,5 +184,9 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		repaint(); // will call paintComponent
+	}
+	
+	public AStarTraversal generateAStar(){
+		return new AStarTraversal(grid);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 
 
 
+
 // TODO the gui packages are basically only here for the setOccupation() function. We will move the gui instantiation elsewhere, probably to the roles' respective constructors.
 import city.home.HomeBuyingRole;
 import city.home.HomelessRole;
@@ -18,6 +19,7 @@ import city.restaurant.RestaurantCustomerRole;
 import city.restaurant.yixin.*;
 import city.restaurant.yixin.gui.*;
 import city.transportation.CommuterRole;
+import aStar.AStarTraversal;
 import agent.Agent;
 import agent.Role;
 
@@ -37,6 +39,7 @@ public class PersonAgent extends Agent
 	private boolean _weekday_notWeekend;
 	private HomeOccupantRole _homeOccupantRole;
 	private HomeBuyingRole _homeBuyingRole; // Will handle buying an apartment or house (now, just pays rent on apartment)
+	private AStarTraversal _traversal;
 	
 	// State data:
 	public double _money;
@@ -104,10 +107,11 @@ public class PersonAgent extends Agent
 	 * @param occupationType I.e. Restaurant Cashier or Restaurant Host or Bank Teller etc.
 	 * @param housingType House or Apartment
 	 */
-	public PersonAgent(String name, double money, String occupationType, String housingType) 
+	public PersonAgent(String name, double money, String occupationType, String housingType, AStarTraversal aStarTraversal) 
 	{
 		_name = name; 
 		_money = money; 
+		this._traversal = aStarTraversal;
 		acquireOccupation(occupationType);
 		acquireHome(housingType);
 		setNewCommuterRole();
@@ -115,7 +119,7 @@ public class PersonAgent extends Agent
 	/** Sets _commuterRole to a new CommuterRole */
 	public void setNewCommuterRole()
 	{
-		_commuterRole = new CommuterRole(this, null); // may replace null with _homeOccupantRole.place() to set the person's starting position
+		_commuterRole = new CommuterRole(this, null, _traversal); // may replace null with _homeOccupantRole.place() to set the person's starting position
 		_commuterRole.setDestination(_homeOccupantRole.place());
 		
 		_currentRole = _commuterRole;

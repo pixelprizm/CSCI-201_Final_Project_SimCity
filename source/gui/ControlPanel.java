@@ -54,7 +54,7 @@ public class ControlPanel extends JTabbedPane {
 				System.out.println("Found house with name: " + h.getName());
 			}
 		currentPersonPanel.addPerson(name);
-		PersonAgent newPerson = new PersonAgent(name, money, occupationType, housingType);
+		PersonAgent newPerson = new PersonAgent(name, money, occupationType, housingType, mainGui.getWorldView().generateAStar());
 		Directory.addPerson(newPerson);
 		// The old way:
 		// CommuterRole newCommuterRole = new CommuterRole(newPerson, null);

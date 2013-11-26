@@ -2,6 +2,7 @@ package city.transportation;
 
 import java.util.Random;
 
+import aStar.AStarTraversal;
 import agent.Role;
 import city.Directory;
 import city.PersonAgent;
@@ -34,7 +35,7 @@ public class CommuterRole extends Role implements Commuter{
 		choseBus, goingToBusStop, atBusStop, waitingAtBusStop, busIsHere, ridingBus, busIsAtDestination, gettingOffBus,
 			atDestination, done, none};
 	public TravelState _tState = TravelState.none;
-	
+	public AStarTraversal _traversal;
 	Random _generator = new Random();
 	
 	//Transportation Hacks
@@ -46,13 +47,14 @@ public class CommuterRole extends Role implements Commuter{
 	CarState _cState = CarState.noCar; 
 	
 	//----------------------------------------------CONSTRUCTOR & PROPERTIES----------------------------------------
-	public CommuterRole(PersonAgent person, Place initialPlace){
+	public CommuterRole(PersonAgent person, Place initialPlace, AStarTraversal traversal){
 		super(person);
+		_traversal = traversal;
 		_person = person;
 		_currentPlace = initialPlace;
 		_destination = null;
 		_car = null;
-		_gui = new CommuterGui(this, initialPlace);
+		_gui = new CommuterGui(this, initialPlace, _traversal);
 	}
 	
 	public CommuterGui gui() { return _gui; }

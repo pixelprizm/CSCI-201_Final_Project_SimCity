@@ -1,8 +1,11 @@
 package city;
 
+import gui.WorldView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 import city.bank.Bank;
 import city.home.ApartmentBuilding;
@@ -21,7 +24,6 @@ public class Directory {
 	
 	//Bus Fare (initialize in constructor?)
 	private static double _busFare = 2;
-	
 	private static double _openingTime = 0;
 	private static double _closingTime = 24;
 
