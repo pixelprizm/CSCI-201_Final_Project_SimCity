@@ -61,9 +61,9 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
        guis.add(gui);
     }
 	
-	public WorldViewBuilding addBuilding(int x, int y, int dim)
+	public WorldViewBuilding addBuilding(String filePath, int x, int y)
 	{
-		 WorldViewBuilding b = new WorldViewBuilding( x, y, dim );
+		 WorldViewBuilding b = new WorldViewBuilding(filePath, x, y);
 		 buildings.add( b );
 		 return b;
 	}
@@ -76,7 +76,13 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		guis.add(gui);
 	}
 	
-
+	public void addAllBuildingsToWorld()
+	{
+		for(int i = 0; i < buildings.size(); i++)
+		{
+			this.add(buildings.get(i));
+		}
+	}
 	public void paintComponent( Graphics g ) {
 		
 	/*	 if ((int)(100*Time.getTime()) % 25 == 0) {
@@ -113,10 +119,10 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		g.drawString("Houses", 60, 300);
 		g.drawString("Apartments", 100, 60);*/
 		
-		for ( int i=0; i<buildings.size(); i++ ) {
+		/*for ( int i=0; i<buildings.size(); i++ ) {
 			WorldViewBuilding b = buildings.get(i);
 		    g2.fill( b );
-		}
+		}*/
 		
 		try
 		{

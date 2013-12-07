@@ -1,21 +1,25 @@
 package gui;
 import java.awt.geom.*;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
 
 @SuppressWarnings("serial")
-public class WorldViewBuilding extends Rectangle2D.Double {
+public class WorldViewBuilding extends JButton {
 	BuildingInteriorAnimationPanel myBuildingPanel;
+	int x;
+	int y;
 
 	// PROPERTIES
 	public int positionX() { return (int)x; }
 	public int positionY() { return (int)y; }
 
-	public WorldViewBuilding( int x, int y, int width, int height ) {
-		super( x, y, width, height );
-	}
-
-	public WorldViewBuilding( int x, int y, int dim) {
-		super( x*10 + 41, y*10 + 30, dim, dim );
+	public WorldViewBuilding(String filePath, int x, int y)
+	{
+		super(new ImageIcon(filePath));
+		this.x = x;
+		this.y = y;
 	}
 
 	public void displayBuilding() {
