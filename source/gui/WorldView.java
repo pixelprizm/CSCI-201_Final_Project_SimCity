@@ -40,7 +40,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 	public WorldView()
 	{
 		this.setPreferredSize(new Dimension(WINDOWX, WINDOWY));
-		this.setBorder(BorderFactory.createTitledBorder("World View"));
+		//this.setBorder(BorderFactory.createTitledBorder("World View"));
 		 buildings = new ArrayList<WorldViewBuilding>();
 		 try {
 			background = ImageIO.read(new File("source/image/WorldViewBG.png"));
@@ -95,7 +95,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		g2.drawImage(background, 0, 0, null);
 		g2.setColor( Color.black );
 		
-		g.drawString("Bank 1", 530, 230);
+		/*g.drawString("Bank 1", 530, 230);
 		g.drawString("Bank 2", 330, 325);
 		g.drawString("YixinRestaurant", 530, 130);
 		g.drawString("Market 1", 530, 325);
@@ -111,7 +111,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		g.drawString("Bus Stop", 60, 340);
 		
 		g.drawString("Houses", 60, 300);
-		g.drawString("Apartments", 100, 60);
+		g.drawString("Apartments", 100, 60);*/
 		
 		for ( int i=0; i<buildings.size(); i++ ) {
 			WorldViewBuilding b = buildings.get(i);

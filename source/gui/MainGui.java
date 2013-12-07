@@ -66,7 +66,7 @@ public class MainGui extends JFrame
 		animationArea.add(_buildingCardLayoutPanel);
 		this.add(animationArea, Component.LEFT_ALIGNMENT);
 		
-		//Bus Stops
+		/*//Bus Stops
 		WorldViewBuilding b5 = _worldView.addBuilding(0, 0, 20);
 		BusStopObject busStop0 = new BusStopObject("Bus Stop " + 0, b5);
 		Directory.addPlace(busStop0);//
@@ -266,7 +266,7 @@ public class MainGui extends JFrame
 			_buildingCardLayoutPanel.add( bp4, bp4.getName() );
 			cPanel.currentBuildingPanel.addBuilding(apartment.name());
 			_buildingInteriorAnimationPanels.add(bp4);
-		}
+		}*/
 		
 		/*
 		//Create the BuildingPanel for each Building object
