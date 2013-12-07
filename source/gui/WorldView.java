@@ -195,6 +195,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		repaint();
 		for(int i = 0; i < buildings.size(); i++)
 		{
 			if(buildings.get(i) == e.getSource())
