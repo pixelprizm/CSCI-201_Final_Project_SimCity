@@ -83,7 +83,9 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		for(int i = 0; i < buildings.size(); i++)
 		{
 			this.add(buildings.get(i));
-			buildings.get(i).setBounds(buildings.get(i).positionX(), buildings.get(i).positionY(), 20, 20);
+			buildings.get(i).setBounds(buildings.get(i).positionX(), buildings.get(i).positionY(), 
+					buildings.get(i).width(), buildings.get(i).height());
+			buildings.get(i).addActionListener(this);
 		}
 		this.repaint();
 	}
@@ -193,6 +195,13 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		repaint(); // will call paintComponent
+		for(int i = 0; i < buildings.size(); i++)
+		{
+			if(buildings.get(i) == e.getSource())
+			{
+				//TODO this is where we switch the interior animation panel as well as the control panel
+				System.out.println("Button Clicked in world view");
+			}
+		}
 	}
 }
