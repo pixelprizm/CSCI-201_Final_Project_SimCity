@@ -43,7 +43,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		//this.setBorder(BorderFactory.createTitledBorder("World View"));
 		 buildings = new ArrayList<WorldViewBuilding>();
 		 try {
-			background = ImageIO.read(new File("source/image/WorldViewBG.png"));
+			background = ImageIO.read(new File("source/image/WorldView/WorldViewBG.png"));
 		} catch (IOException e) {
 			System.out.println("Failed to load image");
 			// TODO Auto-generated catch block

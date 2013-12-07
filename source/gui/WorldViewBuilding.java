@@ -36,6 +36,9 @@ public class WorldViewBuilding extends JButton {
 		this.setIcon(icon);
 		this.x = x;
 		this.y = y;
+		this.setOpaque(false);
+		this.setContentAreaFilled(false);
+		this.setBorderPainted(false);
 	}
 
 	public void displayBuilding() {

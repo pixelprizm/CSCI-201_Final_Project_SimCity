@@ -68,7 +68,58 @@ public class MainGui extends JFrame
 		
 		
 		//TODO add all the buildings
-		WorldViewBuilding test = _worldView.addBuilding("source/image/host.png", 100, 100);
+		//WorldViewBuilding test = _worldView.addBuilding("source/image/host.png", 100, 100);
+		
+		//Yixin's Restaurant
+		WorldViewBuilding b = _worldView.addBuilding("source/image/WorldView/Restaurants/YixinRestaurant.png", 520, 280);
+		BuildingInteriorAnimationPanel bp = new BuildingInteriorAnimationPanel(this, "Yixin's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
+		b.setBuildingPanel(bp);
+		YixinRestaurant yr = new YixinRestaurant("Yixin's Restaurant", b, bp);
+		Directory.addPlace(yr);
+		_buildingCardLayoutPanel.add( bp, bp.getName() );
+		cPanel.currentBuildingPanel.addBuilding(yr.name());
+		_buildingInteriorAnimationPanels.add(bp);
+		
+		//Omar's Restaurant
+		WorldViewBuilding b9 = _worldView.addBuilding("source/image/WorldView/Restaurants/OmarRestaurant.png", 120, 40);
+		BuildingInteriorAnimationPanel bp9 = new BuildingInteriorAnimationPanel(this, "Omar's Restaurant", new city.restaurant.omar.gui.OmarRestaurantAnimationPanel());
+		b9.setBuildingPanel(bp9);
+		OmarRestaurant or = new OmarRestaurant("Omar's Restaurant", b9, bp9);
+		Directory.addPlace(or);
+		_buildingCardLayoutPanel.add( bp9, bp9.getName() );
+		cPanel.currentBuildingPanel.addBuilding(or.name());
+		_buildingInteriorAnimationPanels.add(bp9);
+		
+		//Ryan's Restaurant
+		WorldViewBuilding bR = _worldView.addBuilding("source/image/WorldView/Restaurants/RyanRestaurant.png", 520, 40);
+		BuildingInteriorAnimationPanel bpR = new BuildingInteriorAnimationPanel(this, "Ryan's Restaurant", new city.restaurant.ryan.gui.RyanAnimationPanel());
+		bR.setBuildingPanel(bpR);
+		RyanRestaurant rr = new RyanRestaurant("Ryan's Restaurant", bR, bpR);
+		Directory.addPlace(rr);
+		_buildingCardLayoutPanel.add( bpR, bpR.getName() );
+		cPanel.currentBuildingPanel.addBuilding(rr.name());
+		_buildingInteriorAnimationPanels.add(bpR);
+		
+		//TODO Change to Eric's Restaurant
+		WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding("source/image/WorldView/Restaurants/EricRestaurant.png", 320, 40);
+		BuildingInteriorAnimationPanel restaurantBuildingPanel4 = new BuildingInteriorAnimationPanel(this, "Eric's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
+		restaurantBuilding4.setBuildingPanel(restaurantBuildingPanel4);
+		YixinRestaurant er = new YixinRestaurant("Eric's Restaurant", restaurantBuilding4, restaurantBuildingPanel4);
+		Directory.addPlace(er);
+		_buildingCardLayoutPanel.add( restaurantBuildingPanel4, restaurantBuildingPanel4.getName() );
+		cPanel.currentBuildingPanel.addBuilding(er.name());
+		_buildingInteriorAnimationPanels.add(restaurantBuildingPanel4);
+		
+		//TODO Change to Tanner's Restaurant
+		WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding("source/image/WorldView/Restaurants/TannerRestaurant.png", 120, 280);
+		BuildingInteriorAnimationPanel restaurantBuildingPanel5 = new BuildingInteriorAnimationPanel(this, "Tanner's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
+		restaurantBuilding5.setBuildingPanel(restaurantBuildingPanel5);
+		YixinRestaurant tr = new YixinRestaurant("Tanner's Restaurant", restaurantBuilding5, restaurantBuildingPanel5);
+		Directory.addPlace(tr);
+		_buildingCardLayoutPanel.add( restaurantBuildingPanel5, restaurantBuildingPanel5.getName() );
+		cPanel.currentBuildingPanel.addBuilding(tr.name());
+		_buildingInteriorAnimationPanels.add(restaurantBuildingPanel5);
+		
 		_worldView.addAllBuildingsToWorld();		
 		
 		/*//Bus Stops
