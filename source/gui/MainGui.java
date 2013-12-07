@@ -261,6 +261,106 @@ public class MainGui extends JFrame
 		cPanel.currentBuildingPanel.addBuilding(house10.name());
 		_buildingInteriorAnimationPanels.add(hp10);
 		
+		//Apartment 1
+		WorldViewBuilding a1 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 140, 120);
+		BuildingInteriorAnimationPanel ap1 = new BuildingInteriorAnimationPanel(this, "Apartment 1", new city.home.gui.ApartmentAnimationPanel());
+		a1.setBuildingPanel(ap1);
+		ApartmentBuilding apartment1 = new ApartmentBuilding("Apartment 1", a1, ap1);
+		Directory.addPlace(apartment1);
+		_buildingCardLayoutPanel.add( ap1, ap1.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment1.name());
+		_buildingInteriorAnimationPanels.add(ap1);
+		
+		//Apartment 2
+		WorldViewBuilding a2 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 140, 220);
+		BuildingInteriorAnimationPanel ap2 = new BuildingInteriorAnimationPanel(this, "Apartment 2", new city.home.gui.ApartmentAnimationPanel());
+		a2.setBuildingPanel(ap2);
+		ApartmentBuilding apartment2 = new ApartmentBuilding("Apartment 2", a2, ap2);
+		Directory.addPlace(apartment2);
+		_buildingCardLayoutPanel.add( ap2, ap2.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment2.name());
+		_buildingInteriorAnimationPanels.add(ap2);
+		
+		//Apartment 3
+		WorldViewBuilding a3 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 200, 180);
+		BuildingInteriorAnimationPanel ap3 = new BuildingInteriorAnimationPanel(this, "Apartment 3", new city.home.gui.ApartmentAnimationPanel());
+		a3.setBuildingPanel(ap3);
+		ApartmentBuilding apartment3 = new ApartmentBuilding("Apartment 3", a3, ap3);
+		Directory.addPlace(apartment3);
+		_buildingCardLayoutPanel.add( ap3, ap3.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment3.name());
+		_buildingInteriorAnimationPanels.add(ap3);
+		
+		//Apartment 4
+		WorldViewBuilding a4 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 260, 220);
+		BuildingInteriorAnimationPanel ap4 = new BuildingInteriorAnimationPanel(this, "Apartment 4", new city.home.gui.ApartmentAnimationPanel());
+		a4.setBuildingPanel(ap4);
+		ApartmentBuilding apartment4 = new ApartmentBuilding("Apartment 4", a4, ap4);
+		Directory.addPlace(apartment4);
+		_buildingCardLayoutPanel.add( ap4, ap4.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment4.name());
+		_buildingInteriorAnimationPanels.add(ap4);
+		
+		//Apartment 5
+		WorldViewBuilding a5 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 260, 120);
+		BuildingInteriorAnimationPanel ap5 = new BuildingInteriorAnimationPanel(this, "Apartment 5", new city.home.gui.ApartmentAnimationPanel());
+		a5.setBuildingPanel(ap5);
+		ApartmentBuilding apartment5 = new ApartmentBuilding("Apartment 5", a5, ap5);
+		Directory.addPlace(apartment5);
+		_buildingCardLayoutPanel.add( ap5, ap5.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment5.name());
+		_buildingInteriorAnimationPanels.add(ap5);
+		
+		//Apartment 6
+		WorldViewBuilding a6 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 320, 160);
+		BuildingInteriorAnimationPanel ap6 = new BuildingInteriorAnimationPanel(this, "Apartment 6", new city.home.gui.ApartmentAnimationPanel());
+		a6.setBuildingPanel(ap6);
+		ApartmentBuilding apartment6 = new ApartmentBuilding("Apartment 6", a6, ap6);
+		Directory.addPlace(apartment6);
+		_buildingCardLayoutPanel.add( ap6, ap6.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment6.name());
+		_buildingInteriorAnimationPanels.add(ap6);
+		
+		//Apartment 7
+		WorldViewBuilding a7 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 380, 220);
+		BuildingInteriorAnimationPanel ap7 = new BuildingInteriorAnimationPanel(this, "Apartment 7", new city.home.gui.ApartmentAnimationPanel());
+		a7.setBuildingPanel(ap7);
+		ApartmentBuilding apartment7 = new ApartmentBuilding("Apartment 7", a7, ap7);
+		Directory.addPlace(apartment7);
+		_buildingCardLayoutPanel.add( ap7, ap7.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment7.name());
+		_buildingInteriorAnimationPanels.add(ap7);
+		
+		//Apartment 8
+		WorldViewBuilding a8 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 380, 120);
+		BuildingInteriorAnimationPanel ap8 = new BuildingInteriorAnimationPanel(this, "Apartment 8", new city.home.gui.ApartmentAnimationPanel());
+		a8.setBuildingPanel(ap8);
+		ApartmentBuilding apartment8 = new ApartmentBuilding("Apartment 8", a8, ap8);
+		Directory.addPlace(apartment8);
+		_buildingCardLayoutPanel.add( ap8, ap8.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment8.name());
+		_buildingInteriorAnimationPanels.add(ap8);
+		
+		//Apartment 9
+		WorldViewBuilding a9 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 440, 180);
+		BuildingInteriorAnimationPanel ap9 = new BuildingInteriorAnimationPanel(this, "Apartment 9", new city.home.gui.ApartmentAnimationPanel());
+		a9.setBuildingPanel(ap9);
+		ApartmentBuilding apartment9 = new ApartmentBuilding("Apartment 9", a9, ap9);
+		Directory.addPlace(apartment9);
+		_buildingCardLayoutPanel.add( ap9, ap9.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment9.name());
+		_buildingInteriorAnimationPanels.add(ap9);
+		
+		//Apartment 10
+		WorldViewBuilding a10 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 500, 220);
+		BuildingInteriorAnimationPanel ap10 = new BuildingInteriorAnimationPanel(this, "Apartment 10", new city.home.gui.ApartmentAnimationPanel());
+		a10.setBuildingPanel(ap10);
+		ApartmentBuilding apartment10 = new ApartmentBuilding("Apartment 10", a10, ap10);
+		Directory.addPlace(apartment10);
+		_buildingCardLayoutPanel.add( ap10, ap10.getName() );
+		cPanel.currentBuildingPanel.addBuilding(apartment10.name());
+		_buildingInteriorAnimationPanels.add(ap10);
+		
 		
 		
 		_worldView.addAllBuildingsToWorld();		

@@ -199,8 +199,10 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		{
 			if(buildings.get(i) == e.getSource())
 			{
-				//TODO this is where we switch the interior animation panel as well as the control panel
-				System.out.println("Button Clicked in world view");
+				if(buildings.get(i).myBuildingPanel != null)
+				{
+                    buildings.get(i).displayBuilding();
+				}
 			}
 		}
 	}
