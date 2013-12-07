@@ -1,4 +1,5 @@
 package gui;
+import java.awt.Dimension;
 import java.awt.geom.*;
 
 import javax.swing.ImageIcon;

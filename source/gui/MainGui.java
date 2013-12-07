@@ -66,6 +66,9 @@ public class MainGui extends JFrame
 		animationArea.add(_buildingCardLayoutPanel);
 		this.add(animationArea, Component.LEFT_ALIGNMENT);
 		
+		WorldViewBuilding test = _worldView.addBuilding("source/image/cook", 100, 100);
+		_worldView.addAllBuildingsToWorld();		
+		
 		/*//Bus Stops
 		WorldViewBuilding b5 = _worldView.addBuilding(0, 0, 20);
 		BusStopObject busStop0 = new BusStopObject("Bus Stop " + 0, b5);

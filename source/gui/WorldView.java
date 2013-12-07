@@ -49,6 +49,8 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		 
+		 this.setLayout(null);
          
          addMouseListener( this );
 
@@ -81,7 +83,9 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 		for(int i = 0; i < buildings.size(); i++)
 		{
 			this.add(buildings.get(i));
+			buildings.get(i).setBounds(buildings.get(i).positionX(), buildings.get(i).positionY(), 20, 20);
 		}
+		this.repaint();
 	}
 	public void paintComponent( Graphics g ) {
 		
