@@ -120,6 +120,149 @@ public class MainGui extends JFrame
 		cPanel.currentBuildingPanel.addBuilding(tr.name());
 		_buildingInteriorAnimationPanels.add(restaurantBuildingPanel5);
 		
+		//Market 1
+		WorldViewBuilding b3 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 40, 140);
+		BuildingInteriorAnimationPanel bp3 = new BuildingInteriorAnimationPanel(this, "Market 1", new city.market.gui.MarketAnimationPanel());
+		b3.setBuildingPanel(bp3);
+		Market market = new Market("Market 1", b3, bp3, _worldView);
+		Directory.addPlace(market);
+		_buildingCardLayoutPanel.add( bp3, bp3.getName() );
+		cPanel.currentBuildingPanel.addBuilding(market.name());
+		_buildingInteriorAnimationPanels.add(bp3);
+		
+		//Market 2
+		WorldViewBuilding marketBuilding2 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 600, 140);
+		BuildingInteriorAnimationPanel marketBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Market 2", new city.market.gui.MarketAnimationPanel());
+		marketBuilding2.setBuildingPanel(marketBuildingPanel2);
+		Market market2 = new Market("Market 2", marketBuilding2, marketBuildingPanel2, _worldView);
+		Directory.addPlace(market2);
+		_buildingCardLayoutPanel.add( marketBuildingPanel2, marketBuildingPanel2.getName() );
+		cPanel.currentBuildingPanel.addBuilding(market2.name());
+		_buildingInteriorAnimationPanels.add(marketBuildingPanel2);
+		
+		//Bank 1
+		//Bank
+		WorldViewBuilding b2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 600, 40);
+		BuildingInteriorAnimationPanel bp2 = new BuildingInteriorAnimationPanel(this, "Bank", new city.bank.gui.BankAnimationPanel());
+		b2.setBuildingPanel(bp2);
+		Bank bank = new Bank("Bank", b2, bp2);
+		Directory.addPlace(bank);
+		_buildingCardLayoutPanel.add( bp2, bp2.getName() );
+		cPanel.currentBuildingPanel.addBuilding(bank.name());
+		_buildingInteriorAnimationPanels.add(bp2);
+		
+		//Bank 2
+		WorldViewBuilding bankBuilding2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 40, 280);
+		BuildingInteriorAnimationPanel bankBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Bank 2", new city.bank.gui.BankAnimationPanel());
+		bankBuilding2.setBuildingPanel(bankBuildingPanel2);
+		Bank bank2 = new Bank("Bank 2", bankBuilding2, bankBuildingPanel2);
+		Directory.addPlace(bank2);
+		_buildingCardLayoutPanel.add( bankBuildingPanel2, bankBuildingPanel2.getName() );
+		cPanel.currentBuildingPanel.addBuilding(bank2.name());
+		_buildingInteriorAnimationPanels.add(bankBuildingPanel2);
+		
+		//House1
+	    WorldViewBuilding h1 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 200, 280);
+		BuildingInteriorAnimationPanel hp1 = new BuildingInteriorAnimationPanel(this, "House 1", new city.home.gui.HouseAnimationPanel());
+		h1.setBuildingPanel(hp1);
+		House house1 = new House("House 1", h1, hp1);
+		Directory.addPlace(house1);
+		_buildingCardLayoutPanel.add( hp1, hp1.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house1.name());
+		_buildingInteriorAnimationPanels.add(hp1);
+		
+		//House 2
+	    WorldViewBuilding h2 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 260, 280);
+		BuildingInteriorAnimationPanel hp2 = new BuildingInteriorAnimationPanel(this, "House 2", new city.home.gui.HouseAnimationPanel());
+		h2.setBuildingPanel(hp2);
+		House house2 = new House("House 2", h2, hp2);
+		Directory.addPlace(house2);
+		_buildingCardLayoutPanel.add( hp2, hp2.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house2.name());
+		_buildingInteriorAnimationPanels.add(hp2);
+		
+		//House 3
+	    WorldViewBuilding h3 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 320, 280);
+		BuildingInteriorAnimationPanel hp3 = new BuildingInteriorAnimationPanel(this, "House 3", new city.home.gui.HouseAnimationPanel());
+		h3.setBuildingPanel(hp3);
+		House house3 = new House("House 3", h3, hp3);
+		Directory.addPlace(house3);
+		_buildingCardLayoutPanel.add( hp3, hp3.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house3.name());
+		_buildingInteriorAnimationPanels.add(hp3);
+		
+		//House 4
+	    WorldViewBuilding h4 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 380, 280);
+		BuildingInteriorAnimationPanel hp4 = new BuildingInteriorAnimationPanel(this, "House 4", new city.home.gui.HouseAnimationPanel());
+		h4.setBuildingPanel(hp4);
+		House house4 = new House("House 4", h4, hp4);
+		Directory.addPlace(house4);
+		_buildingCardLayoutPanel.add( hp4, hp4.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house4.name());
+		_buildingInteriorAnimationPanels.add(hp4);
+		
+		//House 5
+	    WorldViewBuilding h5 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 440, 280);
+		BuildingInteriorAnimationPanel hp5 = new BuildingInteriorAnimationPanel(this, "House 5", new city.home.gui.HouseAnimationPanel());
+		h5.setBuildingPanel(hp5);
+		House house5 = new House("House 5", h5, hp5);
+		Directory.addPlace(house5);
+		_buildingCardLayoutPanel.add( hp5, hp5.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house5.name());
+		_buildingInteriorAnimationPanels.add(hp5);
+		
+		//House 6
+	    WorldViewBuilding h6 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 500, 120);
+		BuildingInteriorAnimationPanel hp6 = new BuildingInteriorAnimationPanel(this, "House 6", new city.home.gui.HouseAnimationPanel());
+		h6.setBuildingPanel(hp6);
+		House house6 = new House("House 6", h6, hp6);
+		Directory.addPlace(house6);
+		_buildingCardLayoutPanel.add( hp6, hp6.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house6.name());
+		_buildingInteriorAnimationPanels.add(hp6);
+		
+		//House 7
+	    WorldViewBuilding h7 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 200, 80);
+		BuildingInteriorAnimationPanel hp7 = new BuildingInteriorAnimationPanel(this, "House 7", new city.home.gui.HouseAnimationPanel());
+		h7.setBuildingPanel(hp7);
+		House house7 = new House("House 7", h7, hp7);
+		Directory.addPlace(house7);
+		_buildingCardLayoutPanel.add( hp7, hp7.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house7.name());
+		_buildingInteriorAnimationPanels.add(hp7);
+		
+		//House 8
+	    WorldViewBuilding h8 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 440, 80);
+		BuildingInteriorAnimationPanel hp8 = new BuildingInteriorAnimationPanel(this, "House 8", new city.home.gui.HouseAnimationPanel());
+		h8.setBuildingPanel(hp8);
+		House house8 = new House("House 8", h8, hp8);
+		Directory.addPlace(house8);
+		_buildingCardLayoutPanel.add( hp8, hp8.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house8.name());
+		_buildingInteriorAnimationPanels.add(hp8);
+		
+		//House 9
+	    WorldViewBuilding h9 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 80, 220);
+		BuildingInteriorAnimationPanel hp9 = new BuildingInteriorAnimationPanel(this, "House 9", new city.home.gui.HouseAnimationPanel());
+		h9.setBuildingPanel(hp9);
+		House house9 = new House("House 9", h9, hp9);
+		Directory.addPlace(house9);
+		_buildingCardLayoutPanel.add( hp9, hp9.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house9.name());
+		_buildingInteriorAnimationPanels.add(hp9);
+		
+		//House 10
+	    WorldViewBuilding h10 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 560, 220);
+		BuildingInteriorAnimationPanel hp10 = new BuildingInteriorAnimationPanel(this, "House 10", new city.home.gui.HouseAnimationPanel());
+		h10.setBuildingPanel(hp10);
+		House house10 = new House("House 10", h10, hp10);
+		Directory.addPlace(house10);
+		_buildingCardLayoutPanel.add( hp10, hp10.getName() );
+		cPanel.currentBuildingPanel.addBuilding(house10.name());
+		_buildingInteriorAnimationPanels.add(hp10);
+		
+		
+		
 		_worldView.addAllBuildingsToWorld();		
 		
 		/*//Bus Stops
