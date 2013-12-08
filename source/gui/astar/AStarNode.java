@@ -109,6 +109,11 @@ public class AStarNode implements Node
 	{
 		return gridLoc.equals(o);
 	}
+	
+	public boolean goalTest(AStarNode o)
+	{
+		return this.gridLoc.equals(o.gridLoc);
+	}
 
 	@Override
 	public void printNode() 
