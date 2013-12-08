@@ -34,7 +34,6 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 
     private List<Gui> guis = new ArrayList<Gui>();
     private Image background;
-	
 	ArrayList<WorldViewBuilding> buildings;
 	
 	public WorldView()
