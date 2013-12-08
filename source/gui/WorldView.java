@@ -5,6 +5,8 @@ package gui;
  *
  */
 
+import gui.astar.AStarNode;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -35,6 +37,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
     private List<Gui> guis = new ArrayList<Gui>();
     private Image background;
 	ArrayList<WorldViewBuilding> buildings;
+	AStarNode[][] grid = new AStarNode[34][18];
 	
 	public WorldView()
 	{
@@ -55,6 +58,11 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 
      	Timer timer = new Timer(10, this);
      	timer.start();
+	}
+	
+	public void BuildWorldViewGraph()
+	{
+		
 	}
 	
     public void addGui(CommuterGui gui)
