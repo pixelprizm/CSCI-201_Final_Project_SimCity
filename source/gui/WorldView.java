@@ -107,7 +107,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 			
 		super.paintComponent(g); // this prevents the building animation panel from being copied in the worldview (for some reason).
 		Graphics2D g2 = (Graphics2D)g;
-		g2.drawImage(background, 0, 0, null);
+		//g2.drawImage(background, 0, 0, null);
 		g2.setColor( Color.black );
 		
 		/*g.drawString("Bank 1", 530, 230);
