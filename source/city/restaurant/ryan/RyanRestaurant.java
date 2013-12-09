@@ -65,12 +65,9 @@ public class RyanRestaurant extends Restaurant implements PlaceWithAnimation{
 	}
 	
 	@Override
-	public Role generateWaiterRole(PersonAgent person) {
-		//int i = (new Random()).nextInt(2);
-		int i = 0;
-		
+	public Role generateWaiterRole(PersonAgent person, boolean shared) {
 		RyanWaiterRole newWaiter;
-		if (i == 0)
+		if (!shared)
 			newWaiter = new RyanNormalWaiterRole(person, this, person.name());
 		else
 			newWaiter = new RyanSharedDataWaiterRole(person, this, person.name());
@@ -125,5 +122,10 @@ public class RyanRestaurant extends Restaurant implements PlaceWithAnimation{
 		host.setGui(hostGui);
 		animationPanel().addGui(hostGui);	
 		
+	}
+
+	@Override
+	public void clearInventory() {
+		cook.clearInventory();
 	}
 }

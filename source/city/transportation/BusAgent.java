@@ -1,5 +1,9 @@
 package city.transportation;
 
+import java.awt.Dimension;
+import gui.trace.AlertLog;
+import gui.trace.AlertTag;
+
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
@@ -130,7 +134,8 @@ public class BusAgent extends Agent implements Bus{
 	}
 
 	public void DropOff(){
-		System.out.println("Bus: Dropping off from " + currentDestination.name() + " " + _passengers.size());
+		AlertLog.getInstance().logMessage(AlertTag.BUS, this.name() ,"Dropping off from " + currentDestination.name() + 
+				", Number of Passengers: " + _passengers.size());
 	    bState = BusState.droppingoff;
 	    for(int i = 0; i < _passengers.size() ; i++){
 	    	//System.out.println("The passenger is going to " + commuter.destination.getName());
@@ -141,22 +146,27 @@ public class BusAgent extends Agent implements Bus{
 	            i--;
 	        }
 	    }
-    	System.out.println("Finished dropping off " + getExpectedPeople());	    
+    	AlertLog.getInstance().logMessage(AlertTag.BUS, this.name() ,"Finished dropping off " + getExpectedPeople() + " passengers");	    
 	    stateChanged();
 	}
 
 	public void PickUp(){
-		System.out.println("Bus: Picking up from " + currentDestination.name());
+		AlertLog.getInstance().logMessage(AlertTag.BUS, this.name() ,"Picking up from " + currentDestination.name());
 		currentBusStopList = currentDestination.getList();
 		bState = BusState.pickingup;
-    	for(Commuter comm: currentBusStopList){
+		setExpectedPeople(getExpectedPeople() + currentBusStopList.size());
+		ArrayList<Commuter> waitingList = new ArrayList<Commuter>();
+		for(Commuter comm: currentBusStopList){
+	    	waitingList.add(comm);
+        }
+		//doing this because currentBusStopList is modified at the same time
+		for(Commuter comm: waitingList){
     		if(getExpectedPeople() < capacity){
-	    		System.out.println("Picked up");
-	    		comm.msgGetOnBus(_fare, this);
-	            setExpectedPeople(getExpectedPeople() + 1);
+    			AlertLog.getInstance().logMessage(AlertTag.BUS, this.name() ,"Picked up");
+    			comm.msgGetOnBus(_fare, this);
     		}
         }
-    	System.out.println("Finished Picking up " + getExpectedPeople());
+    	AlertLog.getInstance().logMessage(AlertTag.BUS, this.name() ,"Finished Picking up " + getExpectedPeople() + " passengers");
 	    stateChanged();
 	}
 

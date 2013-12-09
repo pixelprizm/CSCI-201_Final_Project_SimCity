@@ -15,6 +15,7 @@ import java.awt.GridLayout;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import city.Directory;
 import city.Time;
 import city.transportation.gui.BusAgentGui;
 import city.transportation.gui.CommuterGui;
@@ -144,6 +145,21 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 			WorldViewBuilding b = buildings.get(i);
 		    g2.fill( b );
 		}*/
+		
+		for ( int i=0; i<Directory.lanes().size(); i++ ) {
+			Lane l = Directory.lanes().get(i);
+			l.draw( g2 );
+		}
+		
+		for ( int i=0; i<Directory.sidewalks().size(); i++ ) {
+			Lane l = Directory.sidewalks().get(i);
+			l.draw( g2 );
+		}
+		
+		for ( int i=0; i<Directory.busSidewalks().size(); i++ ) {
+			Lane l = Directory.busSidewalks().get(i);
+			l.draw( g2 );
+		}
 		
 		try
 		{

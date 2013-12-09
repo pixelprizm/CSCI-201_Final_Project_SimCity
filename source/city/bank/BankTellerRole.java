@@ -1,5 +1,8 @@
 package city.bank;
 
+import gui.trace.AlertLog;
+import gui.trace.AlertTag;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -24,6 +27,8 @@ public class BankTellerRole extends Role implements BankTeller {
 	boolean occupied;
 	String name;
 	private int tellerNum;
+	private boolean robbery = false;
+	public List<BankCustomerRole> robbers = new ArrayList<BankCustomerRole>();
 	public static AccountDatabase database = new AccountDatabase();
 	
 	enum Command{None, Leave};
@@ -37,6 +42,7 @@ public class BankTellerRole extends Role implements BankTeller {
 	 
 	public BankTellerRole(PersonAgent person, Bank bank, int tellerNum){
 		super(person);
+		this.name = "Teller";
 		this.bank = bank;
 		command = Command.None;
 		this.myBusinessCustomers = new ArrayList<MyBusinessCustomer>();
@@ -48,6 +54,7 @@ public class BankTellerRole extends Role implements BankTeller {
 	}
 	
 	public static class AccountDatabase{
+		  int bankFunds = 1000000;
 	      public Hashtable<Integer, Double> funds;
 	      public Hashtable<Integer, Double> amountOwed;
 	      
@@ -96,7 +103,7 @@ public class BankTellerRole extends Role implements BankTeller {
 		  stateChanged();
 	}
 	public void msgHereIsMyRequest(BankCustomer c, String request, double amount){
-		   print("Customer " + c.toString() + " requested: " + request);
+		   print(AlertTag.BANK, "Customer " + c.toString() + " requested: " + request);
 		  for(MyCustomer m: myCustomers){
 			if(m.customer == c){
 		  	m.customerState = CustomerState.GivenRequest;
@@ -118,10 +125,18 @@ public class BankTellerRole extends Role implements BankTeller {
 		  }
 	}
 	
+	public void msgRobbery(double _amount, BankCustomerRole robber) {
+		AlertLog.getInstance().logMessage(AlertTag.BANK, this.name, "Being Robbed");
+		robbery = true;
+		robbers.add(robber);
+		database.bankFunds-=_amount;
+		stateChanged();
+	}
+	
 	//FOR CASHIERS OF RESTAURANTS AND CASHIERS OF MARKETS
 	public void msgWiredTransaction(Place place, int accountNumber, double amount, String request){
 		int newAccntNum;
-		System.out.println("Wired Transaction Requested.  Fulfilling Now");
+		print(AlertTag.BANK, "Wired Transaction Requested.  Fulfilling Now");
 		if(accountNumber == -1){  //means it doesn't exist yet
 			   newAccntNum = (int)(Math.random()*20000) + 10000; //open account from 20k to 10k for businesses
 			   while(database.funds.containsKey(newAccntNum)){
@@ -140,6 +155,9 @@ public class BankTellerRole extends Role implements BankTeller {
 	
 	//Scheduler
 	public boolean pickAndExecuteAnAction(){
+		if(robbery){
+			actCallSecurity();
+		}
 		for(MyBusinessCustomer mb: myBusinessCustomers){
 			actProcessWireRequest(mb);
 			return true;
@@ -164,6 +182,13 @@ public class BankTellerRole extends Role implements BankTeller {
 	}
 	
 	//Actions
+	private void actCallSecurity(){
+		//AlertLog.getInstance().logDebug(AlertTag.BANK, this.name, " " + robbers.size());
+		bank.getGuardDog().sicEm(robbers);
+		AlertLog.getInstance().logMessage(AlertTag.BANK, this.name, "Sic' Em, Boy!");
+		robbery = false;
+		robbers.removeAll(robbers);
+	}
 	private void actAskForARequest(MyCustomer m){
 		int newAccntNum = m.accountNumber;
 		if(m.accountNumber == -1){  //means it doesn't exist yet
@@ -171,7 +196,7 @@ public class BankTellerRole extends Role implements BankTeller {
 		   while(database.funds.containsKey(newAccntNum)){
 			   newAccntNum = (int)(Math.random()*10000);
 		   }
-		   print("Creating account " + newAccntNum + " for customer " + m.customer.toString());
+		   print(AlertTag.BANK, "Creating account " + newAccntNum + " for customer " + m.customer.toString());
 		   m.accountNumber = newAccntNum;
 		   database.funds.put(newAccntNum, 0.0);
 		   database.amountOwed.put(newAccntNum, 0.0);
@@ -257,7 +282,7 @@ public class BankTellerRole extends Role implements BankTeller {
 				((Restaurant)(m.place)).getCashier().msgTransactionComplete(-m.amount, database.funds.get(m.accountNumber), database.amountOwed.get(m.accountNumber), m.accountNumber);
 			} 
 		}
-		print("Transaction complete for wired customer with account number " + m.accountNumber);
+		print(AlertTag.BANK, "Transaction complete for wired customer with account number " + m.accountNumber);
 		myBusinessCustomers.remove(m);
 		stateChanged();
 	}

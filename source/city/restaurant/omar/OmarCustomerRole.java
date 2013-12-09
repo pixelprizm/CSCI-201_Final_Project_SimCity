@@ -1,5 +1,8 @@
 package city.restaurant.omar;
 
+import gui.trace.AlertLog;
+import gui.trace.AlertTag;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.Semaphore;
@@ -90,7 +93,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	}
 	// Messages
 	public void gotHungry() {//from animation  //A CUSTOMER GETS HUNGRY
-		print("I'm hungry");
+		print(AlertTag.OMAR_RESTAURANT, "I'm hungry");
 		event = AgentEvent.GotHungry;
 		stateChanged();
 	}
@@ -140,7 +143,8 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	}
 	
 	public void msgHereIsCheck(OmarCashierRole cashier, double check){
-		System.out.println("Customer " +this.name+ " payment due: " + this.check);
+		//System.out.println("Customer " +this.name+ " payment due: " + this.check);
+		print(AlertTag.OMAR_RESTAURANT, "Customer " +this.name+ " payment due: " + this.check);
 		this.cashier = cashier;
 		
 		event = AgentEvent.GotCheck;
@@ -229,18 +233,18 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 
 	// Actions
 	private void goToRestaurant() {	//GOES TO RESTAURANT
-		print("Going to restaurant");
+		print(AlertTag.OMAR_RESTAURANT, "Going to restaurant");
 		restaurant.host.msgIWantFood(this);//send our instance, so he can respond to us
 		//he tells the host he's hungry
 		
 		if(this.name.equals("Crazy Steve")){
-			System.out.println("Crazy Steve can't afford anything on the menu, so he left");
+			print(AlertTag.OMAR_RESTAURANT,"Crazy Steve can't afford anything on the menu, so he left");
 			host.msgLeavingWaitList(OmarCustomerRole.this);
 			state = AgentState.DoingNothing;
 			event = AgentEvent.DoneLeaving;
 			customerGui.leftWaitingList();
 		}
-		waitTimer = new Timer(10000, new ActionListener() { 
+		waitTimer = new Timer(20000, new ActionListener() { 
 			public void actionPerformed(ActionEvent e){
 				if(state == AgentState.WaitingInRestaurant && event == AgentEvent.GotHungry){
 					restaurant.host.msgLeavingWaitList(OmarCustomerRole.this);
@@ -253,7 +257,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	}
 
 	private void sitDown() {	//GETS SEATED
-		System.out.println(this.name + ": Being seated. Going to table " + tableNum);
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Being seated. Going to table " + tableNum);
 		customerGui.DoGoToSeat(1, tableNum);
 		try {
 			custSem.acquire();
@@ -272,13 +276,13 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	
 	private void notifyWaiter(){
 		customerGui.setCurrentStatus("Ready");
-		System.out.println(this.name + ": Chose Food.  Called waiter " + waiter.getName() + " over.");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Chose Food.  Called waiter " + waiter.getName() + " over.");
 		waiter.msgReadyToOrder(this);
 	}
 	
 	private void tellWaiterOrder(){
 		customerGui.setCurrentStatus("Waiting");
-		System.out.println(this.name + ": Told Waiter order");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Told Waiter order");
 		String choice;
 		int randomChoice = (int)(Math.random() * 4);
 		if(randomChoice == 0){
@@ -299,7 +303,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 
 	private void eatFood() {	//EATS HIS FOOD
 		customerGui.setCurrentStatus("Eating");
-		System.out.println(this.name + ": Eating Food");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Eating Food");
 	
 		eatTimer = new Timer(5000, new ActionListener() { 
 			public void actionPerformed(ActionEvent event){
@@ -310,7 +314,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	}
 
 	private void doneEating() {
-		print("Done eating.");
+		print(AlertTag.OMAR_RESTAURANT, "Done eating.");
 		event = AgentEvent.DoneEating;
 		stateChanged();
 	}
@@ -334,12 +338,12 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 			cashier.msgICantAffordMyMeal(this);
 		} else{
 			cashier.msgTakeMoney(this, (int)check);
-			System.out.println("Customer's change for next time: " + money);
+			print(AlertTag.OMAR_RESTAURANT, "Customer's change for next time: " + money);
 		}
 	}
 	
 	private void goDie(){
-		System.out.println(this.name + ": Can't pay for food.  Guess I have to die now. :(");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Can't pay for food.  Guess I have to die now. :(");
 		customerGui.DoDie();
 		try {
 			custSem.acquire();
@@ -350,7 +354,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 
 	private void leaveTable() {	//LEAVES
 		customerGui.setCurrentStatus("Leaving");
-		System.out.println(this.name + ": Leaving.");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Leaving.");
 		restaurant.host.msgLeavingTable(this);
 		waiter.msgDoneEatingAndLeaving(this);
 		customerGui.DoExitRestaurant();
@@ -393,7 +397,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 
 	@Override
 	public void cmdGotHungry() {
-		print("I'm hungry");
+		print(AlertTag.OMAR_RESTAURANT, "I'm hungry");
 		event = AgentEvent.GotHungry;
 		stateChanged();
 	}
@@ -406,7 +410,7 @@ public class OmarCustomerRole extends RestaurantCustomerRole {
 	@Override
 	public void cmdFinishAndLeave() {
 		customerGui.setCurrentStatus("Leaving");
-		System.out.println(this.name + ": Leaving.");
+		print(AlertTag.OMAR_RESTAURANT, this.name + ": Leaving.");
 		host.msgLeavingTable(this);
 		waiter.msgDoneEatingAndLeaving(this);
 		customerGui.DoExitRestaurant();
