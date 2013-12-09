@@ -11,9 +11,13 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.Semaphore;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import city.Directory;
@@ -47,6 +51,13 @@ public class MainGui extends JFrame
 	 */
 	public MainGui()
 	{
+		try {
+			ImageAtlas.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//The code below is for setting up the default window settings
 		this.setSize(FRAMEX, FRAMEY);
 		this.setLocationRelativeTo(null);
@@ -115,6 +126,7 @@ public class MainGui extends JFrame
 		
 		// Hard-coded instantiation of all the buildings in the city:
 		//Market
+
 		//WorldViewBuilding b3 = _worldView.addBuilding(24, 5, 40);
 		WorldViewBuilding b3 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 24, 5);
 		BuildingInteriorAnimationPanel bp3 = new BuildingInteriorAnimationPanel(this, "Market 1", new city.market.gui.MarketAnimationPanel());
@@ -126,6 +138,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp3);
 		
 		//Bank
+
 		//WorldViewBuilding b2 = _worldView.addBuilding(28, 5, 40);
 		WorldViewBuilding b2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 28, 5);
 		BuildingInteriorAnimationPanel bp2 = new BuildingInteriorAnimationPanel(this, "Bank", new city.bank.gui.BankAnimationPanel());
@@ -137,6 +150,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp2);
 		
 		// Yixin's Restaurant:
+		
 		//WorldViewBuilding b = _worldView.addBuilding(32, 5, 40);
 		WorldViewBuilding b = _worldView.addBuilding("source/image/WorldView/Restaurants/YixinRestaurant.png", 32, 5);
 		BuildingInteriorAnimationPanel bp = new BuildingInteriorAnimationPanel(this, "Yixin's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
@@ -148,6 +162,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp);
 		
 		//Omar's Restaurant
+
 		//WorldViewBuilding b9 = _worldView.addBuilding(24, 19, 40);
 		WorldViewBuilding b9 = _worldView.addBuilding("source/image/WorldView/Restaurants/OmarRestaurant.png", 24, 19);
 		BuildingInteriorAnimationPanel bp9 = new BuildingInteriorAnimationPanel(this, "Omar's Restaurant", new city.restaurant.omar.gui.OmarRestaurantAnimationPanel());
@@ -159,6 +174,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp9);
 		
 		//Ryan Restaurant
+
 		//WorldViewBuilding bR = _worldView.addBuilding(28, 19, 40);
 		WorldViewBuilding bR = _worldView.addBuilding("source/image/WorldView/Restaurants/RyanRestaurant.png", 28, 19);
 		BuildingInteriorAnimationPanel bpR = new BuildingInteriorAnimationPanel(this, "Ryan's Restaurant", new city.restaurant.ryan.gui.RyanAnimationPanel());
@@ -170,6 +186,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bpR);
 
 		//TODO change to Eric's restaurant
+
 		//WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding(32, 19, 40);
 		WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding("source/image/WorldView/Restaurants/EricRestaurant.png", 32, 19);
 		BuildingInteriorAnimationPanel restaurantBuildingPanel4 = new BuildingInteriorAnimationPanel(this, "Eric's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
@@ -181,6 +198,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(restaurantBuildingPanel4);
 
 		//another market
+
 		//WorldViewBuilding marketBuilding2 = _worldView.addBuilding(44, 5, 40);
 		WorldViewBuilding marketBuilding2 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 44, 5);
 		BuildingInteriorAnimationPanel marketBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Market 2", new city.market.gui.MarketAnimationPanel());
@@ -192,6 +210,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(marketBuildingPanel2);
 
 		//another bank
+		
 		//WorldViewBuilding bankBuilding2 = _worldView.addBuilding(48, 5, 40);
 		WorldViewBuilding bankBuilding2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 48, 5);
 		BuildingInteriorAnimationPanel bankBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Bank 2", new city.bank.gui.BankAnimationPanel());
@@ -203,6 +222,7 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bankBuildingPanel2);
 		
 		//TODO change to Tanner's restaurant
+
 		//WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding(44, 19, 40);
 		WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding("source/image/WorldView/Restaurants/TannerRestaurant.png", 44, 19);
 		BuildingInteriorAnimationPanel restaurantBuildingPanel5 = new BuildingInteriorAnimationPanel(this, "Tanner's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());

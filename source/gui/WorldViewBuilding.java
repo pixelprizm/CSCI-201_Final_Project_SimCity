@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 
+
 @SuppressWarnings("serial")
 public class WorldViewBuilding extends JButton {
 	BuildingInteriorAnimationPanel myBuildingPanel;
@@ -17,6 +18,7 @@ public class WorldViewBuilding extends JButton {
 	int y;
 	Image image;
 	public ImageIcon icon;
+
 
 	// PROPERTIES
 	public int positionX() { return (int)x; }
@@ -39,6 +41,7 @@ public class WorldViewBuilding extends JButton {
 		this.setOpaque(false);
 		this.setContentAreaFilled(false);
 		this.setBorderPainted(false);
+
 	}
 
 	public void displayBuilding() {
