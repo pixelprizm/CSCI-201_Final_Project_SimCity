@@ -74,27 +74,33 @@ public class MainGui extends JFrame
 		this.add(animationArea, Component.LEFT_ALIGNMENT);
 		
 		//Bus Stops
-		WorldViewBuilding bs0 = _worldView.addBuilding(0, 0, 20);
+		//WorldViewBuilding bs0 = _worldView.addBuilding(0, 0, 20);
+		WorldViewBuilding bs0 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 0, 0);
 		BusStopObject busStop0 = new BusStopObject("Bus Stop " + 0, bs0);
 		Directory.addPlace(busStop0);
 		AlertLog.getInstance().logInfo(AlertTag.GENERAL_CITY, this.name, "Bus Stop 0 successfully added");
-		WorldViewBuilding bs1 = _worldView.addBuilding(29, 0, 20);
+		//WorldViewBuilding bs1 = _worldView.addBuilding(29, 0, 20);
+		WorldViewBuilding bs1 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 29, 0);
 		BusStopObject busStop1 = new BusStopObject("Bus Stop " + 1, bs1);
 		Directory.addPlace(busStop1);
 		AlertLog.getInstance().logInfo(AlertTag.GENERAL_CITY, this.name, "Bus Stop 1 successfully added");
-		WorldViewBuilding bs2 = _worldView.addBuilding(58, 0, 20);
+		//WorldViewBuilding bs2 = _worldView.addBuilding(58, 0, 20);
+		WorldViewBuilding bs2 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 58, 0);
 		BusStopObject busStop2 = new BusStopObject("Bus Stop " + 2, bs2);
 		Directory.addPlace(busStop2);
 		AlertLog.getInstance().logInfo(AlertTag.GENERAL_CITY, this.name, "Bus Stop 2 successfully added");
-		WorldViewBuilding bs3 = _worldView.addBuilding(58, 28, 20);
+		//WorldViewBuilding bs3 = _worldView.addBuilding(58, 28, 20);
+		WorldViewBuilding bs3 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 58, 28);
 		BusStopObject busStop3 = new BusStopObject("Bus Stop " + 3, bs3);
 		Directory.addPlace(busStop3);
 		AlertLog.getInstance().logMessage(AlertTag.GENERAL_CITY, this.name, "Bus Stop 3 successfully added");
-		WorldViewBuilding bs4 = _worldView.addBuilding(29, 28, 20);
+		//WorldViewBuilding bs4 = _worldView.addBuilding(29, 28, 20);
+		WorldViewBuilding bs4 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 29, 28);
 		BusStopObject busStop4 = new BusStopObject("Bus Stop " + 4, bs4);
 		Directory.addPlace(busStop4);
 		AlertLog.getInstance().logMessage(AlertTag.GENERAL_CITY, this.name, "Bus Stop 4 successfully added");
-		WorldViewBuilding bs5 = _worldView.addBuilding(0, 28, 20);
+		//WorldViewBuilding bs5 = _worldView.addBuilding(0, 28, 20);
+		WorldViewBuilding bs5 = _worldView.addBuilding("source/image/WorldView/BusStop.png", 0, 28);
 		BusStopObject busStop5 = new BusStopObject("Bus Stop " + 5, bs5);
 		Directory.addPlace(busStop5);
 		AlertLog.getInstance().logMessage(AlertTag.GENERAL_CITY, this.name, "Bus Stop 5 successfully added");
@@ -109,7 +115,8 @@ public class MainGui extends JFrame
 		
 		// Hard-coded instantiation of all the buildings in the city:
 		//Market
-		WorldViewBuilding b3 = _worldView.addBuilding(24, 5, 40);
+		//WorldViewBuilding b3 = _worldView.addBuilding(24, 5, 40);
+		WorldViewBuilding b3 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 24, 5);
 		BuildingInteriorAnimationPanel bp3 = new BuildingInteriorAnimationPanel(this, "Market 1", new city.market.gui.MarketAnimationPanel());
 		b3.setBuildingPanel(bp3);
 		Market market = new Market("Market 1", b3, bp3, _worldView);
@@ -119,7 +126,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp3);
 		
 		//Bank
-		WorldViewBuilding b2 = _worldView.addBuilding(28, 5, 40);
+		//WorldViewBuilding b2 = _worldView.addBuilding(28, 5, 40);
+		WorldViewBuilding b2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 28, 5);
 		BuildingInteriorAnimationPanel bp2 = new BuildingInteriorAnimationPanel(this, "Bank", new city.bank.gui.BankAnimationPanel());
 		b2.setBuildingPanel(bp2);
 		Bank bank = new Bank("Bank", b2, bp2);
@@ -129,7 +137,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp2);
 		
 		// Yixin's Restaurant:
-		WorldViewBuilding b = _worldView.addBuilding(32, 5, 40);
+		//WorldViewBuilding b = _worldView.addBuilding(32, 5, 40);
+		WorldViewBuilding b = _worldView.addBuilding("source/image/WorldView/Restaurants/YixinRestaurant.png", 32, 5);
 		BuildingInteriorAnimationPanel bp = new BuildingInteriorAnimationPanel(this, "Yixin's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
 		b.setBuildingPanel(bp);
 		YixinRestaurant yr = new YixinRestaurant("Yixin's Restaurant", b, bp);
@@ -139,7 +148,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp);
 		
 		//Omar's Restaurant
-		WorldViewBuilding b9 = _worldView.addBuilding(24, 19, 40);
+		//WorldViewBuilding b9 = _worldView.addBuilding(24, 19, 40);
+		WorldViewBuilding b9 = _worldView.addBuilding("source/image/WorldView/Restaurants/OmarRestaurant.png", 24, 19);
 		BuildingInteriorAnimationPanel bp9 = new BuildingInteriorAnimationPanel(this, "Omar's Restaurant", new city.restaurant.omar.gui.OmarRestaurantAnimationPanel());
 		b9.setBuildingPanel(bp9);
 		OmarRestaurant or = new OmarRestaurant("Omar's Restaurant", b9, bp9);
@@ -149,7 +159,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bp9);
 		
 		//Ryan Restaurant
-		WorldViewBuilding bR = _worldView.addBuilding(28, 19, 40);
+		//WorldViewBuilding bR = _worldView.addBuilding(28, 19, 40);
+		WorldViewBuilding bR = _worldView.addBuilding("source/image/WorldView/Restaurants/RyanRestaurant.png", 28, 19);
 		BuildingInteriorAnimationPanel bpR = new BuildingInteriorAnimationPanel(this, "Ryan's Restaurant", new city.restaurant.ryan.gui.RyanAnimationPanel());
 		bR.setBuildingPanel(bpR);
 		RyanRestaurant rr = new RyanRestaurant("Ryan's Restaurant", bR, bpR);
@@ -159,7 +170,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bpR);
 
 		//TODO change to Eric's restaurant
-		WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding(32, 19, 40);
+		//WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding(32, 19, 40);
+		WorldViewBuilding restaurantBuilding4 = _worldView.addBuilding("source/image/WorldView/Restaurants/EricRestaurant.png", 32, 19);
 		BuildingInteriorAnimationPanel restaurantBuildingPanel4 = new BuildingInteriorAnimationPanel(this, "Eric's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
 		restaurantBuilding4.setBuildingPanel(restaurantBuildingPanel4);
 		YixinRestaurant er = new YixinRestaurant("Eric's Restaurant", restaurantBuilding4, restaurantBuildingPanel4);
@@ -169,7 +181,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(restaurantBuildingPanel4);
 
 		//another market
-		WorldViewBuilding marketBuilding2 = _worldView.addBuilding(44, 5, 40);
+		//WorldViewBuilding marketBuilding2 = _worldView.addBuilding(44, 5, 40);
+		WorldViewBuilding marketBuilding2 = _worldView.addBuilding("source/image/WorldView/Market/Market.png", 44, 5);
 		BuildingInteriorAnimationPanel marketBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Market 2", new city.market.gui.MarketAnimationPanel());
 		marketBuilding2.setBuildingPanel(marketBuildingPanel2);
 		Market market2 = new Market("Market 2", marketBuilding2, marketBuildingPanel2, _worldView);
@@ -179,7 +192,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(marketBuildingPanel2);
 
 		//another bank
-		WorldViewBuilding bankBuilding2 = _worldView.addBuilding(48, 5, 40);
+		//WorldViewBuilding bankBuilding2 = _worldView.addBuilding(48, 5, 40);
+		WorldViewBuilding bankBuilding2 = _worldView.addBuilding("source/image/WorldView/Bank/Bank.png", 48, 5);
 		BuildingInteriorAnimationPanel bankBuildingPanel2 = new BuildingInteriorAnimationPanel(this, "Bank 2", new city.bank.gui.BankAnimationPanel());
 		bankBuilding2.setBuildingPanel(bankBuildingPanel2);
 		Bank bank2 = new Bank("Bank 2", bankBuilding2, bankBuildingPanel2);
@@ -189,7 +203,8 @@ public class MainGui extends JFrame
 		_buildingInteriorAnimationPanels.add(bankBuildingPanel2);
 		
 		//TODO change to Tanner's restaurant
-		WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding(44, 19, 40);
+		//WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding(44, 19, 40);
+		WorldViewBuilding restaurantBuilding5 = _worldView.addBuilding("source/image/WorldView/Restaurants/TannerRestaurant.png", 44, 19);
 		BuildingInteriorAnimationPanel restaurantBuildingPanel5 = new BuildingInteriorAnimationPanel(this, "Tanner's Restaurant", new city.restaurant.yixin.gui.YixinAnimationPanel());
 		restaurantBuilding5.setBuildingPanel(restaurantBuildingPanel5);
 		YixinRestaurant tr = new YixinRestaurant("Tanner's Restaurant", restaurantBuilding5, restaurantBuildingPanel5);
@@ -200,7 +215,8 @@ public class MainGui extends JFrame
 		
 		//Initializing houses
 		for(int i = 1; i < 3; i++){
-		    WorldViewBuilding b4 = _worldView.addBuilding(8, 3 + 2*i, 20);
+		    //WorldViewBuilding b4 = _worldView.addBuilding(8, 3 + 2*i, 20);
+		    WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 8, 3 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "House " + i, new city.home.gui.HouseAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			House house = new House("House " + i, b4, bp4);
@@ -211,7 +227,8 @@ public class MainGui extends JFrame
 		}
 		
 		for(int i = 3; i < 6; i++){
-		    WorldViewBuilding b4 = _worldView.addBuilding(8, 13 + 2*i, 20);
+		    //WorldViewBuilding b4 = _worldView.addBuilding(8, 13 + 2*i, 20);
+		    WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 8, 13 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "House " + i, new city.home.gui.HouseAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			House house = new House("House " + i, b4, bp4);
@@ -223,7 +240,8 @@ public class MainGui extends JFrame
 		
 		//Initializing apartments
 		for(int i = 1; i < 3; i++){
-			WorldViewBuilding b4 = _worldView.addBuilding(10, 3 + 2*i, 20);
+			//WorldViewBuilding b4 = _worldView.addBuilding(10, 3 + 2*i, 20);
+			WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 10, 3 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "Apartment " + i, new city.home.gui.ApartmentAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			ApartmentBuilding apartment = new ApartmentBuilding("Apartment", b4, bp4);
@@ -234,7 +252,8 @@ public class MainGui extends JFrame
 		}
 		
 		for(int i = 3; i < 6; i++){
-			WorldViewBuilding b4 = _worldView.addBuilding(10, 13 + 2*i, 20);
+			//WorldViewBuilding b4 = _worldView.addBuilding(10, 13 + 2*i, 20);
+			WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 10, 13 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "Apartment " + i, new city.home.gui.ApartmentAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			ApartmentBuilding apartment = new ApartmentBuilding("Apartment", b4, bp4);
@@ -246,7 +265,8 @@ public class MainGui extends JFrame
 		
 		//Initializing more houses
 		for(int i = 1; i < 3; i++){
-		    WorldViewBuilding b4 = _worldView.addBuilding(12, 3 + 2*i, 20);
+		    //WorldViewBuilding b4 = _worldView.addBuilding(12, 3 + 2*i, 20);
+		    WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/House1.png", 12, 3 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "House " + (i + 5), new city.home.gui.HouseAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			House house = new House("House " + i + 5, b4, bp4);
@@ -257,7 +277,8 @@ public class MainGui extends JFrame
 		}
 		
 		for(int i = 3; i < 6; i++){
-		    WorldViewBuilding b4 = _worldView.addBuilding(12, 13 + 2*i, 20);
+		    //WorldViewBuilding b4 = _worldView.addBuilding(12, 13 + 2*i, 20);
+			WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/House2.png", 12, 13 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "House " + (i + 5), new city.home.gui.HouseAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			House house = new House("House " + i + 5, b4, bp4);
@@ -269,7 +290,8 @@ public class MainGui extends JFrame
 		
 		//Initializing more apartments
 		for(int i = 1; i < 3; i++){
-			WorldViewBuilding b4 = _worldView.addBuilding(14, 3 + 2*i, 20);
+			//WorldViewBuilding b4 = _worldView.addBuilding(14, 3 + 2*i, 20);
+			WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment1.png", 14, 3 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "Apartment " + (i + 5), new city.home.gui.ApartmentAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			ApartmentBuilding apartment = new ApartmentBuilding("Apartment", b4, bp4);
@@ -280,7 +302,8 @@ public class MainGui extends JFrame
 		}
 		
 		for(int i = 3; i < 6; i++){
-			WorldViewBuilding b4 = _worldView.addBuilding(14, 13 + 2*i, 20);
+			//WorldViewBuilding b4 = _worldView.addBuilding(14, 13 + 2*i, 20);
+			WorldViewBuilding b4 = _worldView.addBuilding("source/image/WorldView/Housing/Apartment2.png", 14, 13 + 2*i);
 			BuildingInteriorAnimationPanel bp4 = new BuildingInteriorAnimationPanel(this, "Apartment " + (i + 5), new city.home.gui.ApartmentAnimationPanel());
 			b4.setBuildingPanel(bp4);
 			ApartmentBuilding apartment = new ApartmentBuilding("Apartment", b4, bp4);
@@ -288,7 +311,7 @@ public class MainGui extends JFrame
 			_buildingCardLayoutPanel.add( bp4, bp4.getName() );
 			cPanel.currentBuildingPanel.addBuilding(apartment.name());
 			_buildingInteriorAnimationPanels.add(bp4);
-		}*/
+		}
 		
 		//vehicle lanes
 		Lane l3 = new Lane( 8*10+41, 15*10+30, 80, 10, 1, 0, true, Color.green, Color.black );
@@ -407,6 +430,8 @@ public class MainGui extends JFrame
 		Directory.addBusSidewalk(bl17);
 		Directory.addBusSidewalk(bl18);
 		Directory.addBusSidewalk(bl19);
+		
+		_worldView.addAllBuildingsToWorld();
 		/*
 		//Create the BuildingPanel for each Building object
 		ArrayList<WorldViewBuilding> worldViewBuildings = _worldView.getBuildings();
@@ -459,7 +484,7 @@ public class MainGui extends JFrame
 	    		grid[i][j].tryAcquire();
 	    for (int i=44; i<52; i++)
 	    	for (int j=19; j<25; j++)
-	    		grid[i][j].tryAcquire();*/
+	    		grid[i][j].tryAcquire();
 		//The code below will add a tabbed panel to hold all the control panels.  Should take the right third of the window
 		
 		this.add(cPanel, Component.RIGHT_ALIGNMENT);
