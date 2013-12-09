@@ -593,7 +593,7 @@ public class MainGui extends JFrame
 			}
 		}
 		*/
-		int xdim = 60;
+		/*int xdim = 60;
 	    int ydim = 30;
 	    grid = new Semaphore[xdim][ydim];
 	    for (int i=0; i<xdim; i++)
@@ -617,7 +617,7 @@ public class MainGui extends JFrame
 	    		grid[i][j].tryAcquire();
 	    for (int i=44; i<52; i++)
 	    	for (int j=19; j<25; j++)
-	    		grid[i][j].tryAcquire();
+	    		grid[i][j].tryAcquire();*/
 		//The code below will add a tabbed panel to hold all the control panels.  Should take the right third of the window
 		
 		this.add(cPanel, Component.RIGHT_ALIGNMENT);

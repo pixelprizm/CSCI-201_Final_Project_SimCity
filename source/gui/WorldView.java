@@ -6,6 +6,7 @@ package gui;
  */
 
 import gui.astar.AStarNode;
+import gui.astar.Position;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -62,7 +63,14 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
 	
 	public void BuildWorldViewGraph()
 	{
-		
+		//Creating the nodes
+		for(int i = 0; i < grid.length; i++)
+		{
+			for(int j = 0; j < grid[0].length; j++)
+			{
+				grid[i][j] = new AStarNode(new Position(i, j), AStarNode.NodeType.people);
+			}
+		}
 	}
 	
     public void addGui(CommuterGui gui)
