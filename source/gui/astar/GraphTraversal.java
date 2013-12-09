@@ -9,8 +9,7 @@ import java.io.IOException;
 
 public abstract class GraphTraversal
 {
-	//didn't use this abstract class at all
-	/*protected Queue<Node> nodes = null;
+	protected Queue<Node> nodes = null;
 	protected Object startingState, endingState;
 
 	public GraphTraversal()	{		
@@ -60,5 +59,5 @@ public abstract class GraphTraversal
 			List<Node> newNodes);
 	public abstract List<Node> expandFunc(Node node); 
 
-	public abstract void printCurrentList();*/
+	public abstract void printCurrentList();
 }//end printCurrentList

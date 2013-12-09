@@ -3,9 +3,9 @@ package gui.astar;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class AStarTraversal
+public class AStarTraversal extends GraphTraversal
 {
-	public static LinkedList<AStarNode> FindPath(AStarNode startNode, AStarNode endNode)
+	/*public static LinkedList<AStarNode> FindPath(AStarNode startNode, AStarNode endNode)
 	{
 		//TODO do this
 		return null;
@@ -15,10 +15,10 @@ public class AStarTraversal
 	{
 		//TODO do this
 		return false;	
-	}
+	}*/
 	
-}
-	/*private Semaphore[][] grid;
+
+	private Semaphore[][] grid;
 	private List<Integer> x = new ArrayList<Integer>(4);
 	private List<Integer> y = new ArrayList<Integer>(4);
 	public AStarTraversal(Semaphore[][] grid){
@@ -119,4 +119,6 @@ public class AStarTraversal
 			old.offer((AStarNode)m);
 		}
 	}
-	public Semaphore[][] getGrid(){return grid;}*/
+	public Semaphore[][] getGrid(){return grid;}
+	
+}

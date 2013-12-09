@@ -39,7 +39,6 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
     private List<Gui> guis = new ArrayList<Gui>();
     private Image background;
 	ArrayList<WorldViewBuilding> buildings;
-	AStarNode[][] grid = new AStarNode[34][18];
 	
 	public WorldView()
 	{
@@ -61,19 +60,7 @@ public class WorldView extends JPanel implements MouseListener, ActionListener
      	Timer timer = new Timer(10, this);
      	timer.start();
 	}
-	
-	public void BuildWorldViewGraph()
-	{
-		//Creating the nodes
-		for(int i = 0; i < grid.length; i++)
-		{
-			for(int j = 0; j < grid[0].length; j++)
-			{
-				grid[i][j] = new AStarNode(new Position(i, j), AStarNode.NodeType.people);
-			}
-		}
-	}
-	
+
     public void addGui(CommuterGui gui)
     {
        guis.add(gui);

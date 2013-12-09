@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
 
 public class AStarNode implements Node
 {
-	Semaphore access;
+	/*Semaphore access;
 	public static enum NodeType {none, people, vehicles};
 	NodeType type;
 	List<AStarNode> adjacencyList;
@@ -119,9 +119,9 @@ public class AStarNode implements Node
 	public void printNode() 
 	{
 		//Don't need this
-	}
+	}*/
 	
-	/*private Position pos; //last position in path ; redundant
+	private Position pos; //last position in path ; redundant
 	private double distTravelled;
 	private double approxTotalDist;
 	private List<Position> path; 
@@ -176,5 +176,5 @@ public class AStarNode implements Node
 
 	public boolean goalTest(Object p){
 		return pos.equals((Position)p); 
-	}*/	
+	}	
 }
