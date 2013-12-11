@@ -28,6 +28,10 @@ public class TannerRestaurantCookRoleGui implements Gui {
 	{
 		agent = (TannerRestaurantCookRole) cook;
 		present = true;
+		xPos = 565;
+		yPos = 100;
+		xDestination = 565;
+		yDestination = 100;
 	}
 
 	@Override
