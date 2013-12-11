@@ -167,18 +167,6 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 	public boolean pickAndExecuteAnAction() 
 	{
 		try {
-			
-			if(marketOrders.size() > 0)
-			{
-				for(int i = 0; i < marketOrders.size(); i++)
-				{
-					if(marketOrders.get(i).orderState == OrderState.orderRecieved)
-					{
-						PayMarket(marketOrders.get(i));
-						return true;
-					}
-				}
-			}
 			if(CheckStock())
 			{
 				PlaceNewMarketOrder();
@@ -253,11 +241,6 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 		return needMoreFood;
 	}
 	
-
-	private void PayMarket(MarketOrder mo)
-	{
-		
-	}
 	
 	private void PlaceNewMarketOrder()
 	{
