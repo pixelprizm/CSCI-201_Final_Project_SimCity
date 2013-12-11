@@ -28,6 +28,7 @@ import city.market.Market;
 import city.restaurant.eric.EricRestaurant;
 import city.restaurant.omar.OmarRestaurant;
 import city.restaurant.ryan.RyanRestaurant;
+import city.restaurant.tanner.TannerRestaurant;
 import city.restaurant.yixin.YixinRestaurant;
 import city.transportation.*;
 import city.transportation.gui.BusAgentGui;
@@ -179,6 +180,16 @@ public class MainGui extends JFrame
 		_buildingCardLayoutPanel.add( ericRestaurantInteriorAnimationPanel, ericRestaurantInteriorAnimationPanel.getName() );
 		cPanel.currentBuildingPanel.addBuilding(ericRestaurant.name());
 		_buildingInteriorAnimationPanels.add(ericRestaurantInteriorAnimationPanel);
+		
+		//Tanner's Restaurant
+		WorldViewBuilding tannerRestaurantWorldViewBuidling = _worldView.addBuilding(44, 19, 40, ImageAtlas.mapAtlas.get("EricRestaurant"));
+		BuildingInteriorAnimationPanel tannerRestaurantInteriorAnimationPanel = new BuildingInteriorAnimationPanel(this, "Tanner's Restaurant", new city.restaurant.tanner.gui.TannerRestaurantAnimationPanel());
+		tannerRestaurantWorldViewBuidling.setBuildingPanel(tannerRestaurantInteriorAnimationPanel);
+		TannerRestaurant tannerRestaurant = new TannerRestaurant("Tanner's Restaurant", tannerRestaurantWorldViewBuidling, tannerRestaurantInteriorAnimationPanel);
+		Directory.addPlace(tannerRestaurant);
+		_buildingCardLayoutPanel.add(tannerRestaurantInteriorAnimationPanel, tannerRestaurantInteriorAnimationPanel.getName());
+		cPanel.currentBuildingPanel.addBuilding(tannerRestaurant.name());
+		_buildingInteriorAnimationPanels.add(tannerRestaurantInteriorAnimationPanel);
 
 		//another market
 		WorldViewBuilding marketBuilding2 = _worldView.addBuilding(44, 5, 40, ImageAtlas.mapAtlas.get("Market"));
