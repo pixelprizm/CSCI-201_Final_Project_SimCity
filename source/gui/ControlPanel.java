@@ -72,7 +72,9 @@ public class ControlPanel extends JTabbedPane {
 				newPerson.addActionToDo("EricRestaurant");
 			} if(occupationType.contains("Ryan")){
 				newPerson.addActionToDo("RyanRestaurant");
-			} if(occupationType.contains("Bank")){
+			} if(occupationType.contains("Tanner")) {
+				newPerson.addActionToDo("TannerRestaurant");
+			}if(occupationType.contains("Bank")){
 				if (occupationType.contains("Robber")){
 					newPerson.addActionToDo("BankRobber");
 				} else{

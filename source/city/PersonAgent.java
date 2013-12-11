@@ -797,12 +797,9 @@ public class PersonAgent extends Agent implements Person
 			}
 			break;
 		case "Tanner":
-				rcr = (RestaurantCustomerRole)getRoleOfType(TannerRestaurantCustomerRole.class);
-				if(rcr == null)
-				{
+					System.out.println(("go to rest of type called"));
 					rcr = getNewCustomerRoleFromRestaurantOfType(TannerRestaurant.class);
 					if(rcr != null) _customerRoles.add(rcr);
-				}
 				break;
 		case "Yixin":
 			rcr = (RestaurantCustomerRole)getRoleOfType(YixinCustomerRole.class);
@@ -889,6 +886,7 @@ public class PersonAgent extends Agent implements Person
 		List<Restaurant> restaurants = Directory.restaurants();
 		for(Restaurant r : restaurants)
 		{
+			System.out.println("get new Customer Role if type called");
 			if(r.getClass().equals(type)) return r.generateCustomerRole(this);
 		}
 		return null;

@@ -92,6 +92,7 @@ public class TannerRestaurant extends Restaurant
 	@Override
 	public RestaurantCustomerRole generateCustomerRole(PersonAgent person) 
 	{
+		System.out.println("Customer role called");
 		count++;
 		if (count > 10){
 			count = 0;

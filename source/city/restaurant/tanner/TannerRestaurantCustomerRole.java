@@ -63,6 +63,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		billAmount = 0;
 		doingAction = new Semaphore(0, true);
 		restaurant = rest;
+		host = (TannerRestaurantHost) restaurant.getHost();
 	}
 	
 //---------------------------------------------Accessors--------------------------------------------------------
