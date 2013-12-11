@@ -62,7 +62,7 @@ public class TannerRestaurantCashierRoleGui implements Gui {
 	{
 		if(agent.active)
 		{
-			g.drawImage(cashier, xPos, yPos, xGap, yGap, (ImageObserver) this);
+			g.drawImage(cashier, xPos, yPos, xGap, yGap, null);
 		}
 	}
 

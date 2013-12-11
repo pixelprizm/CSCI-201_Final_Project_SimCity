@@ -56,7 +56,7 @@ public class TannerRestaurantCookRoleGui implements Gui {
 	public void draw(Graphics2D g) 
 	{
 		if(agent.active)
-			g.drawImage(cook, xPos, yPos, xGap, yGap, (ImageObserver) this);
+			g.drawImage(cook, xPos, yPos, xGap, yGap, null);
 	}
 
 	@Override
