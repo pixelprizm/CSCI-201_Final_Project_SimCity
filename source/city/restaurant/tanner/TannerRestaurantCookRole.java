@@ -86,6 +86,11 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 		stateChanged();
 	}
 	
+	public void msgAnimationComplete()
+	{
+		doingAction.release();
+	}
+	
 	@Override
 	public void msgHereIsANewOrder(int choice, int tableNumber, TannerRestaurantWaiter w) 
 	{

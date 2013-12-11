@@ -30,7 +30,7 @@ public class TannerRestaurantAnimationPanel extends JPanel implements ActionList
 	
 	ImageIcon b = new ImageIcon(this.getClass().getResource("/image/restaurant/Grill.png"));
 	Image grill = b.getImage();
-	Dimension grillPos = new Dimension(580, 1);
+	Dimension grillPos = new Dimension(580, 20);
 	int grillWidth = 28;
 	int grillHeight = 88;
 	

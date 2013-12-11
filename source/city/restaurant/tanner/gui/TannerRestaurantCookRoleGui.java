@@ -1,53 +1,88 @@
 package city.restaurant.tanner.gui;
 
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
 
+import javax.swing.ImageIcon;
+
+import city.restaurant.tanner.TannerRestaurantCookRole;
 import city.restaurant.tanner.interfaces.TannerRestaurantCook;
 import gui.Gui;
 
 public class TannerRestaurantCookRoleGui implements Gui {
+	
+	boolean present;
+	TannerRestaurantCookRole agent;
+	int xPos;
+	int yPos;
+	int xDestination;
+	int yDestination;
+	ImageIcon a = new ImageIcon(this.getClass().getResource("/image/restaurant/Chef.png"));
+    Image cook = a.getImage();
+    int xGap = 18;
+    int yGap = 32;
+	
 
-	public TannerRestaurantCookRoleGui(TannerRestaurantCook cook) {
-		// TODO Auto-generated constructor stub
-		
+	public TannerRestaurantCookRoleGui(TannerRestaurantCook cook) 
+	{
+		agent = (TannerRestaurantCookRole) cook;
+		present = true;
 	}
 
 	@Override
-	public void updatePosition() {
-		// TODO Auto-generated method stub
+	public void updatePosition() 
+	{
+		if (xPos < xDestination)
+            xPos++;
+        else if (xPos > xDestination)
+            xPos--;
 
+        if (yPos < yDestination)
+            yPos++;
+        else if (yPos > yDestination)
+            yPos--;
+        
+        if (xPos == xDestination && yPos == yDestination) {
+        	agent.msgAnimationComplete();
+		}
 	}
 
 	@Override
-	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
-
+	public void draw(Graphics2D g) 
+	{
+		if(agent.active)
+			g.drawImage(cook, xPos, yPos, xGap, yGap, (ImageObserver) this);
 	}
 
 	@Override
-	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isPresent() 
+	{
+		return present;
 	}
 
-	public void DoGoToRevolvingStand() {
-		// TODO Auto-generated method stub
-		
+	public void DoGoToRevolvingStand() 
+	{
+		xDestination = 570;
+		yDestination = 200;
 	}
 
-	public void DoGoToIngredients() {
-		// TODO Auto-generated method stub
-		
+	public void DoGoToIngredients() 
+	{
+		xDestination = 610;
+		yDestination = 260;
 	}
 
-	public void DoGoToGrills() {
-		// TODO Auto-generated method stub
-		
+	public void DoGoToGrills() 
+	{
+		xDestination = 610;
+		yDestination = 60;
 	}
 
-	public void DoGoToHeatLamp() {
-		// TODO Auto-generated method stub
-		
+	public void DoGoToHeatLamp() 
+	{
+		xDestination = 565;
+		yDestination = 100;
 	}
 
 }
