@@ -1,12 +1,19 @@
 package city.restaurant.tanner.gui;
 
+import gui.Gui;
+
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class TannerRestaurantAnimationPanel extends JPanel implements ActionListener{
 	
@@ -70,6 +77,69 @@ public class TannerRestaurantAnimationPanel extends JPanel implements ActionList
 	Dimension kitchenPos = new Dimension(540, 0);
 	int kitchenWidth = 140;
 	int kitchenHeight = 350;
+	
+	List<Gui> guis = new ArrayList<Gui>();
+	
+	public TannerRestaurantAnimationPanel()
+	{
+		this.setPreferredSize(new Dimension(WINDOWX, WINDOWY));
+		this.setMaximumSize(new Dimension(WINDOWX, WINDOWY));
+		this.setMinimumSize(new Dimension(WINDOWX, WINDOWY));
+		this.setVisible(true);
+		Timer timer = new Timer(10, this);
+		timer.start();	
+	}
+	
+	 public void paintComponent(Graphics g)
+	 {
+		 Graphics2D g2 = (Graphics2D)g;
+		 
+		 //Clear Screen
+		 g2.setColor(getBackground());
+		 g2.fillRect(0, 0, WINDOWX, WINDOWY);
+		 
+		 
+		 //Draw Dining Room Floor
+		 g2.drawImage(diningRoom, 0, 0, drWidth, drHeight, this);
+		 
+		 //Draw Kitchen Floor
+		 g2.drawImage(kitchen, kitchenPos.width, kitchenPos.height, kitchenWidth, kitchenHeight, this);
+		 
+		 //Draw Table 1
+		 g2.drawImage(table, table1Pos.width, table1Pos.height, tableWidth, tableHeight, this);
+		 g2.drawImage(table, table2Pos.width, table2Pos.height, tableWidth, tableHeight, this);
+		 g2.drawImage(table, table3Pos.width, table3Pos.height, tableWidth, tableHeight, this);
+		 
+		 //Draw Fridge
+		 g2.drawImage(fridge, fridgePos.width, fridgePos.height, fridgeWidth, fridgeHeight, this);
+		 
+		 //Draw Grills
+		 g2.drawImage(grill, grillPos.width, grillPos.height, grillWidth, grillHeight, this);
+		 
+		 //Draw Kitchen Counter
+		 g2.drawImage(counter, counterPos.width, counterPos.height, coutnerWidth, counterHeight, this);
+		 
+		 //Draw Plating Area
+		 g2.drawImage(platingArea, platingPos.width, platingPos.height, platingWidth, platingHeight, this);
+		 
+		 //Draw Revolving Stand
+		 g2.drawImage(rStand, rsPos.width, rsPos.height, rsWidth, rsHeight, this);
+		 
+		 //Draw Cashier Counter
+		 g2.drawImage(cashierCounter, cashierCounterPos.width, cashierCounterPos.height, ccWidth, ccHeight, this);
+		 
+		 for(Gui gui : guis) {
+			 if (gui.isPresent()) {
+				 gui.updatePosition();
+			 }
+		 }
+
+		 for(Gui gui : guis) {
+			 if (gui.isPresent()) {
+				 gui.draw(g2);
+			 }
+		 }
+	 }
 
 	public void addGui(TannerRestaurantWaiterRoleGui tannerWaiterGui) {
 		
