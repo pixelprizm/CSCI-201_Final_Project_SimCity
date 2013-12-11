@@ -62,10 +62,10 @@ public class TannerRestaurant extends Restaurant
 		this.animationPanel = (TannerRestaurantAnimationPanel)animationPanel.getBuildingAnimation();
 		waiters = new ArrayList<TannerRestaurantWaiter>();
 		host = new TannerRestaurantHostRole(null, this, "Host");
-		cashier = new TannerRestaurantCashierRole(null, this, "Cashier");
-		cook = new TannerRestaurantCookRole(null, this, cashier, "Money Bags");	
+		_cashier = new TannerRestaurantCashierRole(null, this, "Cashier");
+		_cook = new TannerRestaurantCookRole(null, this, (TannerRestaurantCashierRole) _cashier, "Money Bags");	
 		currentFunds = 10000.0;
-		cashier.setCook(cook);
+		((TannerRestaurantCashierRole) _cashier).setCook((TannerRestaurantCook) _cook);
 	}
 
 	//For Unit testing DO NOT DELETE
@@ -147,16 +147,16 @@ public class TannerRestaurant extends Restaurant
 	@Override
 	public void generateCashierGui() 
 	{
-		TannerRestaurantCashierRoleGui tannerCashierGui = new TannerRestaurantCashierRoleGui((TannerRestaurantCashier)cashier);
-		((TannerRestaurantCashier)cashier).setGui(tannerCashierGui);
+		TannerRestaurantCashierRoleGui tannerCashierGui = new TannerRestaurantCashierRoleGui((TannerRestaurantCashier)_cashier);
+		((TannerRestaurantCashier)_cashier).setGui(tannerCashierGui);
 		this.animationPanel.addGui(tannerCashierGui);		
 	}
 
 	@Override
 	public void generateCookGui() 
 	{
-		TannerRestaurantCookRoleGui tannerCookGui = new TannerRestaurantCookRoleGui((TannerRestaurantCook)cook);
-		((TannerRestaurantCook)cook).setGui(tannerCookGui);
+		TannerRestaurantCookRoleGui tannerCookGui = new TannerRestaurantCookRoleGui((TannerRestaurantCook)_cook);
+		((TannerRestaurantCook)_cook).setGui(tannerCookGui);
 		this.animationPanel.addGui(tannerCookGui);			
 	}
 

@@ -470,10 +470,12 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 		else if(configBox.getSelectedIndex() == 12)
 		{
 			cPanel.addPerson("TannerHost", 300, "TannerRestaurant Host", true, "house");
-			//cPanel.addPerson("TannerCashier", 300, "TannerRestaurant Cashier", true, "apartment");
-			//cPanel.addPerson("TannerCook", 50, "TannerRestaurant Cook", true, "apartment");
+			cPanel.addPerson("TannerCashier", 300, "TannerRestaurant Cashier", true, "apartment");
+			cPanel.addPerson("TannerCook", 50, "TannerRestaurant Cook", true, "apartment");
 			cPanel.addPerson("TannerSharedDataWaiter", 150, "TannerRestaurant SharedDataWaiter", true, "house");
 			cPanel.addPerson("TannerNormalWaiter", 150, "TannerRestaurant NormalWaiter", true, "house");
+			cPanel.addPerson("Customer1", 150, "TannerRestaurant Customer", true, "apartment");
+			cPanel.addPerson("Customer2", 150, "TannerRestaurant Customer", true, "apartment");
 		}
 	}
 

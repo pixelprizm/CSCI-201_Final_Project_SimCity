@@ -19,6 +19,7 @@ import city.restaurant.eric.*;
 import city.restaurant.omar.*;
 import city.restaurant.ryan.*;
 import city.restaurant.tanner.TannerRestaurant;
+import city.restaurant.tanner.TannerRestaurantCustomerRole;
 import city.restaurant.yixin.*;
 import city.transportation.CommuterRole;
 import agent.*;
@@ -536,9 +537,9 @@ public class PersonAgent extends Agent implements Person
 					if(nextAction.contains("Ryan")) {
 						if(actGoToRestaurantOfType("Ryan")) return true;
 					}
-				//	if(nextAction.contains("Tanner")) {
-				//		if(goToRestaurantOfType("Tanner")) return true;
-				//	}
+						if(nextAction.contains("Tanner")) {
+							if(actGoToRestaurantOfType("Tanner")) return true;
+						}
 					if(nextAction.contains("Yixin")) {
 						if(actGoToRestaurantOfType("Yixin")) return true;
 					}
@@ -795,14 +796,14 @@ public class PersonAgent extends Agent implements Person
 				if(rcr != null) _customerRoles.add(rcr);
 			}
 			break;
-		//case "Tanner":
-		//	rcr = (RestaurantCustomerRole)getRoleOfType(TannerCustomerRole.class);
-		//	if(rcr == null)
-		//	{
-		//		rcr = getNewCustomerRoleFromRestaurantOfType(TannerRestaurant.class);
-		//		if(rcr != null) _customerRoles.add(rcr);
-		//	}
-		//	break;
+		case "Tanner":
+				rcr = (RestaurantCustomerRole)getRoleOfType(TannerRestaurantCustomerRole.class);
+				if(rcr == null)
+				{
+					rcr = getNewCustomerRoleFromRestaurantOfType(TannerRestaurant.class);
+					if(rcr != null) _customerRoles.add(rcr);
+				}
+				break;
 		case "Yixin":
 			rcr = (RestaurantCustomerRole)getRoleOfType(YixinCustomerRole.class);
 			if(rcr == null) {

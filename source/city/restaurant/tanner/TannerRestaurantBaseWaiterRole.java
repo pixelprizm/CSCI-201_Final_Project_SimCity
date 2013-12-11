@@ -49,6 +49,7 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 		onBreak = false;
 		menu = new int[]{1, 2, 3, 4};
 		log = new utilities.EventLog();
+		restaurant = rest;
 		
 	}
 

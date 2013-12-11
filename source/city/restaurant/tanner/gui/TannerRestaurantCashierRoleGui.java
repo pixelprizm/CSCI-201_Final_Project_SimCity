@@ -29,9 +29,9 @@ public class TannerRestaurantCashierRoleGui implements Gui {
 	{
 		agent = (TannerRestaurantCashierRole) cashier;
 		present = true;
-		xPos = 150;
+		xPos = 165;
 		yPos = 25;
-		xDest = 150;
+		xDest = 165;
 		yDest = 25;
 	}
 

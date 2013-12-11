@@ -48,6 +48,7 @@ public class TannerRestaurantCookRoleGui implements Gui {
             yPos--;
         
         if (xPos == xDestination && yPos == yDestination) {
+        	
         	agent.msgAnimationComplete();
 		}
 	}
