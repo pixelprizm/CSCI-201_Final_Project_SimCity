@@ -141,34 +141,29 @@ public class TannerRestaurantAnimationPanel extends JPanel implements ActionList
 		 }
 	 }
 
-	public void addGui(TannerRestaurantWaiterRoleGui tannerWaiterGui) {
-		
-		// TODO Auto-generated method stub
-		
+	public void addGui(TannerRestaurantWaiterRoleGui tannerWaiterGui) 
+	{
+		guis.add(tannerWaiterGui);
 	}
 
-	public void addGui(TannerRestaurantCustomerRoleGui tannerCustomerGui) {
-		
-		// TODO Auto-generated method stub
-		
+	public void addGui(TannerRestaurantCustomerRoleGui tannerCustomerGui) 
+	{
+		guis.add(tannerCustomerGui);
 	}
 
-	public void addGui(TannerRestaurantCashierRoleGui tannerCashierGui) {
-		// TODO Auto-generated method stub
-		
-		
+	public void addGui(TannerRestaurantCashierRoleGui tannerCashierGui) 
+	{
+		guis.add(tannerCashierGui);
 	}
 
-	public void addGui(TannerRestaurantCookRoleGui tannerCookGui) {
-		// TODO Auto-generated method stub
-		
-		
+	public void addGui(TannerRestaurantCookRoleGui tannerCookGui) 
+	{
+		guis.add(tannerCookGui);
 	}
 
-	public void addGui(TannerRestaurantHostRoleGui tannerHostGui) {
-		// TODO Auto-generated method stub
-		
-		
+	public void addGui(TannerRestaurantHostRoleGui tannerHostGui) 
+	{
+		guis.add(tannerHostGui);
 	}
 
 	@Override

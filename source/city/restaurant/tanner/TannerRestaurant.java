@@ -94,7 +94,7 @@ public class TannerRestaurant extends Restaurant
 	{
 		count++;
 		if (count > 10){
-			count = -1;
+			count = 0;
 		}
 		TannerRestaurantCustomerRole customer = new TannerRestaurantCustomerRole(person, this, person.name(), count);
 		TannerRestaurantCustomerRoleGui tannerCustomerGui = new TannerRestaurantCustomerRoleGui(customer);
