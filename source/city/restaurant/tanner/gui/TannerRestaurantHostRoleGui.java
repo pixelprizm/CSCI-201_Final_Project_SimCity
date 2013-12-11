@@ -5,8 +5,9 @@ import java.awt.Graphics2D;
 import city.restaurant.tanner.interfaces.TannerRestaurantHost;
 import gui.Gui;
 
-public class TannerRestaurantHostRoleGui implements Gui {
-
+public class TannerRestaurantHostRoleGui implements Gui 
+{
+	//Host gui isnt needed
 	public TannerRestaurantHostRoleGui(TannerRestaurantHost host) {
 		// TODO Auto-generated constructor stub
 	}
