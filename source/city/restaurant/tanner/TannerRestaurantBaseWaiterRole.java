@@ -81,6 +81,11 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 	}
 //------------------------------------------Messages---------------------------------------------------------
 	
+	public void msgAnimationFinished()
+	{
+		doingAction.release();
+	}
+	
 	@Override
 	public void msgHereIsANewCustomer(TannerRestaurantCustomer c, int tableNumber, TannerRestaurantHost h, TannerRestaurantCook co) 
 	{
