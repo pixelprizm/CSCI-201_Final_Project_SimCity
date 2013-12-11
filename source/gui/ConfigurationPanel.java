@@ -31,7 +31,8 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 			"Scenario: Bus Activity",
 			"Scenario: Market Delivery",
 			"Scenario: One Customer",
-			"Scenario: Three Customers"};
+			"Scenario: Three Customers",
+			"Scenario: Tanner's Restaurant"};
 	JLabel configLabel;
 	JComboBox configBox;
 	JButton startButton;
@@ -48,6 +49,7 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 	String config10Description;
 	String config11Description;
 	String config12Description;
+	String config13Description;
 	JLabel descriptionText;
 	SpringLayout layout;
 	private final int WIDTH = 1024/3;
@@ -94,6 +96,7 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 				+ "<br>One customer is also created and visits all workspaces one by one.</br></html>";
 		config12Description = "<html><br>Scenario: One Customer: Initialize the city with all workers.</br>"
 				+ "<br>Three customer are created and they visit all workspaces in different orders.</br></html>";
+		config13Description = "<html><br>This is to test Tanner's Restaurant</br></html>";
 		descriptionText = new JLabel();
 		descriptionText.setText(config1Description);
 		description.add(descriptionText);
@@ -183,6 +186,10 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 			else if(configBox.getSelectedIndex() == 11)
 			{
 				descriptionText.setText(config12Description);
+			}
+			else if(configBox.getSelectedIndex() == 12)
+			{
+				descriptionText.setText(config13Description);
 			}
 		}
 
@@ -458,6 +465,15 @@ public class ConfigurationPanel extends JPanel implements ActionListener {
 			currentPerson.addActionToDo("Market Customer");
 			currentPerson.addActionToDo("Omar Restaurant");
 			//currentPerson.addActionToDo("Eric Restaurant");
+		}
+		
+		else if(configBox.getSelectedIndex() == 12)
+		{
+			cPanel.addPerson("TannerHost", 300, "TannerRestaurant Host", true, "house");
+			//cPanel.addPerson("TannerCashier", 300, "TannerRestaurant Cashier", true, "apartment");
+			//cPanel.addPerson("TannerCook", 50, "TannerRestaurant Cook", true, "apartment");
+			cPanel.addPerson("TannerSharedDataWaiter", 150, "TannerRestaurant SharedDataWaiter", true, "house");
+			cPanel.addPerson("TannerNormalWaiter", 150, "TannerRestaurant NormalWaiter", true, "house");
 		}
 	}
 
