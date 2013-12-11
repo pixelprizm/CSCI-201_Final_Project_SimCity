@@ -18,6 +18,7 @@ import city.restaurant.*;
 import city.restaurant.eric.*;
 import city.restaurant.omar.*;
 import city.restaurant.ryan.*;
+import city.restaurant.tanner.TannerRestaurant;
 import city.restaurant.yixin.*;
 import city.transportation.CommuterRole;
 import agent.*;
@@ -284,13 +285,13 @@ public class PersonAgent extends Agent implements Person
 					}
 				}
 			}
-			//	else if(occupationType.contains("Tanner")) {
-			//		for(Restaurant r : restaurants) {
-			//			if(r instanceof TannerRestaurant) {
-			//				restaurantsChosen.add(r);
-			//			}
-			//		}
-			//	}
+			else if(occupationType.contains("Tanner")) {
+				for(Restaurant r : restaurants) {
+					if(r instanceof TannerRestaurant) {
+						chosenRestaurants.add(r);
+					}
+				}
+			}
 			else if(occupationType.contains("Yixin")) {
 				for(Restaurant r : restaurants) {
 					if(r instanceof YixinRestaurant) {
