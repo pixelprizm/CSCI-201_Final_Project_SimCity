@@ -486,27 +486,6 @@ public class PersonAgent extends Agent implements Person
 					}
 				}
 			}
-			/*
-			if(_currentRole == _homeOccupantRole && (_state.time() > 20 || _state.time() < 7))
-			{
-				if(_state.nourishment() == NourishmentState.HUNGRY)
-				{
-					if(!_homeOccupantRole.cooking())
-					{
-						_homeOccupantRole.cmdCookAndEatFood();
-						return true;
-					}
-				}
-				else
-				{
-					if(!_homeOccupantRole.sleeping())
-					{
-						_homeOccupantRole.cmdGoToBed();
-						return true;
-					}
-				}
-			}
-			*/
 			
 			// ---------------------------------------------- Call current role's scheduler -------------------------------------------
 			// print("About to call _currentRole (" + _currentRole.toString() + ") scheduler.");
