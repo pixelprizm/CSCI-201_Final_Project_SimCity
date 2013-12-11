@@ -66,6 +66,12 @@ public class TannerRestaurant extends Restaurant
 		_cook = new TannerRestaurantCookRole(null, this, (TannerRestaurantCashierRole) _cashier, "Money Bags");	
 		currentFunds = 10000.0;
 		((TannerRestaurantCashierRole) _cashier).setCook((TannerRestaurantCook) _cook);
+		Table t1 = new Table(1, 180, 120);
+		Table t2 = new Table(2, 300, 120);
+		Table t3 = new Table(3, 420, 120);
+		tableMap.put(0, t1);
+		tableMap.put(1, t2);
+		tableMap.put(2, t3);
 	}
 
 	//For Unit testing DO NOT DELETE

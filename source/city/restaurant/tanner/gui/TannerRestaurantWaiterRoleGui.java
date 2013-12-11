@@ -103,7 +103,7 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
 		}
 	}
 
-	public void DoGoToCook(Point position) 
+	public void DoGoToCook() 
 	{
 		xDestination = 515;
 		yDestination = 100;

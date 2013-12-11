@@ -471,7 +471,7 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 	private void BringFood(MyCustomer c)
 	{
 		print(AlertTag.TANNER_RESTAURANT, "Bring food to Customers");
-		myGUI.DoGoToCook(cook.getPosition());
+		myGUI.DoGoToCook();
 		try {
 			doingAction.acquire();
 		} catch (InterruptedException e1) {

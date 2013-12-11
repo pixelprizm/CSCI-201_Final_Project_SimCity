@@ -23,7 +23,7 @@ public class TannerRestaurantRegularWaiterRole extends TannerRestaurantBaseWaite
 	protected void SubmitOrder(MyCustomer c) 
 	{
 		print(AlertTag.TANNER_RESTAURANT, "Submit order to cook");
-		myGUI.DoGoToCook(cook.getPosition());
+		myGUI.DoGoToCook();
 		try {
 			doingAction.acquire();
 		} catch (InterruptedException e) {
