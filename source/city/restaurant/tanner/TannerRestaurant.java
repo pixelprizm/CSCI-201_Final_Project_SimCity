@@ -52,7 +52,7 @@ public class TannerRestaurant extends Restaurant
 	TannerRestaurantAnimationPanel animationPanel;
 	int count = -1;
 	int waiter_count = -1;
-	List<TannerRestaurantWaiter> waiters;
+	public List<TannerRestaurantWaiter> waiters;
 	public double currentFunds;
 	
 	

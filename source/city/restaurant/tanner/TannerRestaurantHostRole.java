@@ -42,6 +42,10 @@ public class TannerRestaurantHostRole extends Role implements TannerRestaurantHo
 		waitingCustomers = new ArrayList<TannerRestaurantCustomer>();
 		potentialCustomers = new ArrayList<TannerRestaurantCustomer>();
 		restaurant = rest;
+		for(int i = 0; i < restaurant.waiters.size(); i++)
+		{
+			myWaiters.add(new MyWaiter(restaurant.waiters.get(i)));
+		}
 	}
 
 //-----------------------------------------Accessors-------------------------------------------------------------------------	
@@ -55,6 +59,7 @@ public class TannerRestaurantHostRole extends Role implements TannerRestaurantHo
 	public void addWaiter(TannerRestaurantWaiter w)
 	{
 		myWaiters.add(new MyWaiter(w));
+		stateChanged();
 	}
 	
 	public void setGui(TannerRestaurantHostRoleGui g)
