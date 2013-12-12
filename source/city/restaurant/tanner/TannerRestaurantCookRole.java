@@ -49,9 +49,9 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 	{
 		super(person);
 		name_ = name;
-		orders = Collections.synchronizedList(new ArrayList<Order>());
-		marketOrders = Collections.synchronizedList(new ArrayList<MarketOrder>());
-		doingAction = new Semaphore(0, true);	
+		orders = new ArrayList<Order>();
+		marketOrders = new ArrayList<MarketOrder>();
+		doingAction = new Semaphore(1, true);	
 		this.cashier = cashier;
 		restaurant = rest;
 		markets = Directory.markets().get(0);
@@ -94,23 +94,14 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 	@Override
 	public void msgHereIsANewOrder(int choice, int tableNumber, TannerRestaurantWaiter w) 
 	{
-		if(restaurant.menu.get(choice).stock > 0)
-		{
-			orders.add(new Order(w, choice, tableNumber));
-			restaurant.menu.get(choice).stock--;
-			stateChanged();
-		}
-		else
-		{
-			w.msgThatChoiceIsOutOfStock(choice, tableNumber);
-		}	
+		orders.add(new Order(w, choice, tableNumber));
+		restaurant.menu.get(choice).stock--;
+		stateChanged();
 	}
 	
 	@Override
 	public void msgOrderFulfillment(Market m, List<Item> order) 
 	{
-		synchronized(marketOrders)
-		{
 			for(int i = 0; i < marketOrders.size(); i++)
 			{
 				if(marketOrders.get(i).market == m)
@@ -130,7 +121,6 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 					
 				}
 			}
-		}
 		canOrder = true;
 		stateChanged();
 	}
@@ -151,8 +141,6 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 	@Override
 	public void msgHereIsTheBill(double amount, MarketCashier m) 
 	{
-		synchronized(marketOrders)
-		{
 			for(int i = 0; i < marketOrders.size(); i++)
 			{
 				if(marketOrders.get(i).market == m)
@@ -161,8 +149,7 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 					marketOrders.get(i).cost = amount;
 					stateChanged();
 				}
-			}
-		}		
+			}		
 	}
 
 	
@@ -182,8 +169,6 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 			
 			else if(orders.size() > 0)
 			{
-				synchronized(orders)
-				{
 					for(int i = 0; i < orders.size(); i++)
 					{
 						if(orders.get(i).orderState == State.orderReady)
@@ -192,10 +177,7 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 							return true;
 						}
 					}
-				}
 				
-				synchronized(orders)
-				{
 					for(int i = 0; i < orders.size(); i++)
 					{
 						if(orders.get(i).orderState == State.orderPending)
@@ -204,12 +186,11 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 							return true;
 						}
 					}
-				}
 			}
 			
 			Order order = restaurant.revolvingStand.remove();
 			if (order!=null){
-				myGui.DoGoToRevolvingStand();
+				//myGui.DoGoToRevolvingStand();
 				orders.add(order);
 				return true;
 			}
@@ -283,6 +264,7 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 		cookTimer.schedule(new TimerTask() {
 			public void run()
 			{
+				System.out.println("Order finished cooking");
 				o.orderState = State.orderReady;
 				stateChanged();
 			}

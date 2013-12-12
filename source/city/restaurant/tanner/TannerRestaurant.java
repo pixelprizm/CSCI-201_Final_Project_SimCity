@@ -11,6 +11,8 @@ import gui.WorldViewBuilding;
 import agent.Role;
 import city.PersonAgent;
 import city.restaurant.Restaurant;
+import city.restaurant.RestaurantCashierRole;
+import city.restaurant.RestaurantCookRole;
 import city.restaurant.RestaurantCustomerRole;
 import city.restaurant.omar.OmarWaiterRole;
 import city.restaurant.tanner.gui.TannerRestaurantAnimationPanel;
@@ -94,6 +96,17 @@ public class TannerRestaurant extends Restaurant
 	{
 		return currentFunds;
 	}
+	
+	public RestaurantCashierRole getCashier()
+	{
+		return _cashier;
+	}
+	
+	public RestaurantCookRole getCook()
+	{
+		return _cook;
+	}
+	
 
 	@Override
 	public RestaurantCustomerRole generateCustomerRole(PersonAgent person) 

@@ -61,7 +61,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		myMoney = 50;
 		myDebt = 0;
 		billAmount = 0;
-		doingAction = new Semaphore(0, true);
+		doingAction = new Semaphore(1, true);
 		restaurant = rest;
 		host = (TannerRestaurantHost) restaurant.getHost();
 	}
@@ -309,6 +309,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		print(AlertTag.TANNER_RESTAURANT, "Sit Down");
 		myState = State.BeingSeated;
 		myGui.DoGoToSeat(table.tableNumber);
+		//msgAnimationFinishedSeat();
 	}
 	
 	private void LookAtMenu()
@@ -316,6 +317,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		print(AlertTag.TANNER_RESTAURANT, "Look at menu");
 		myState = State.WaitingToOrder;
 		myGui.DoLookAtMenu();
+		//msgFiguredOutMyOrder();
 	}
 	
 	private void CallWaiterToOrder()
@@ -360,8 +362,8 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		else
 		{
 			print(AlertTag.TANNER_RESTAURANT, "Order normally");
-			Random orderGenerator = new Random();
-			int choiceIndex = orderGenerator.nextInt(menu.size());
+			//Random orderGenerator = new Random();
+			int choiceIndex = 1;
 			choice = menu.get(choiceIndex);
 			waiter.msgHereIsMyOrder(this, choice);
 			myState = State.WaitingForFood;
@@ -413,6 +415,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		print(AlertTag.TANNER_RESTAURANT, "Eat food");
 		myState = State.Eating;
 		myGui.DoEatFood();
+		//msgAnimationFinishEating();
 	}
 	
 	private void GetCheck()
@@ -440,7 +443,7 @@ public class TannerRestaurantCustomerRole extends RestaurantCustomerRole impleme
 		else
 		{
 			print(AlertTag.TANNER_RESTAURANT, "Paying");
-			cashier.msgHereIsMyPayment(billAmount, myMoney, this);
+			((TannerRestaurantCashierRole) restaurant.getCashier()).msgHereIsMyPayment(billAmount, myMoney, this);
 		}
 	}
 	

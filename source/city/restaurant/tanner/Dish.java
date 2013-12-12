@@ -3,20 +3,20 @@ package city.restaurant.tanner;
 
 public class Dish {
 
-	float cookTime;
-	public String dishName;
-	int menuNumber;
-	int stock;
-	int buffer;
-	int max;
-	float cost;
+	public static float cookTime;
+	public static String dishName;
+	public static int menuNumber;
+	public static int stock;
+	public static int buffer;
+	public static int max;
+	public static float cost;
 	
 	public Dish(int mn)
 	{
 		menuNumber = mn;
 		if(mn == 1)
 		{
-			stock = 10;
+			stock = 1000;
 			buffer = 3;
 			max = 15;
 			dishName = new String("Steak");
@@ -26,7 +26,7 @@ public class Dish {
 		}
 		if(mn == 2)
 		{
-			stock = 10;
+			stock = 1000;
 			buffer = 3;
 			max = 15;
 			dishName = new String("Chicken");
@@ -36,7 +36,7 @@ public class Dish {
 		}
 		if(mn == 3)
 		{
-			stock = 10;
+			stock = 1000;
 			buffer = 3;
 			max = 15;
 			dishName = new String("Salad");
@@ -46,7 +46,7 @@ public class Dish {
 		}
 		if(mn == 4)
 		{
-			stock = 10;
+			stock = 1000;
 			buffer = 3;
 			max = 15;
 			dishName = new String("Pizza");

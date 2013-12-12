@@ -78,8 +78,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 	@Override
 	public void msgHereIsMyPayment(double billAmount, double myMoney, TannerRestaurantCustomer c) 
 	{
-		synchronized(bills)
-		{
 			for(int i = 0; i < bills.size(); i++)
 			{
 				if(bills.get(i).customer == c)
@@ -90,7 +88,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 					break;
 				}
 			}
-		}
 		stateChanged();		
 	}
 	
@@ -98,8 +95,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 	@Override
 	public void msgIDontHaveEnoughMoney(double billAmount, double myMoney, TannerRestaurantCustomer c) 
 	{
-		synchronized(bills)
-		{
 			for(int i = 0; i < bills.size(); i++)
 			{
 				if(bills.get(i).customer == c)
@@ -110,7 +105,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 					break;
 				}
 			}
-		}
 		stateChanged();		
 	}
 	@Override
@@ -187,8 +181,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 			{
 				if(myMoney > 0)
 				{
-					synchronized(marketBills)
-					{
 						for(int i = 0; i < marketBills.size(); i++)
 						{
 							if(marketBills.get(i).billState == MarketBillState.invoiceReceived)
@@ -197,10 +189,7 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 								return true;
 							}
 						}
-					}
-					
-					synchronized(marketBills)
-					{
+				
 						for(int i = 0; i < marketBills.size(); i++)
 						{
 							if(marketBills.get(i).billState == MarketBillState.changeReceived)
@@ -208,13 +197,10 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 								
 							}
 						}
-					}
 				}
 			}
 			else if(bills.size() > 0)
 			{
-				synchronized(bills)
-				{
 					for(int i = 0; i < bills.size(); i++)
 					{
 						if(bills.get(i).state == BillState.computed)
@@ -223,10 +209,7 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 							return true;
 						}
 					}
-				}
 				
-				synchronized(bills)
-				{
 					for(int i = 0; i < bills.size(); i++)
 					{
 						if(bills.get(i).state == BillState.paid)
@@ -235,10 +218,7 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 							return true;
 						}
 					}
-				}
 				
-				synchronized(bills)
-				{
 					for(int i = 0; i < bills.size(); i++)
 					{
 						if(bills.get(i).state == BillState.settled)
@@ -247,7 +227,6 @@ public class TannerRestaurantCashierRole extends RestaurantCashierRole implement
 							return true;
 						}
 					}
-				}
 			}
 		} catch (ConcurrentModificationException e) {
 			e.printStackTrace();

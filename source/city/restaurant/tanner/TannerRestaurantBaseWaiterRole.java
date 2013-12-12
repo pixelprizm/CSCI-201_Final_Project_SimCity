@@ -45,7 +45,7 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 		super(person);
 		name_ = name;
 		myCustomers = new ArrayList<MyCustomer>();
-		doingAction = new Semaphore(0, true);
+		doingAction = new Semaphore(1, true);
 		onBreak = false;
 		menu = new int[]{1, 2, 3, 4};
 		log = new utilities.EventLog();
@@ -463,8 +463,12 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 	
 	private void GiveOrderToCook(MyCustomer c)
 	{
-		print(AlertTag.TANNER_RESTAURANT, "Give order to cook");
-		cook.msgHereIsANewOrder(c.order, c.tableNumber, this);
+		
+		if(this instanceof TannerRestaurantRegularWaiterRole)
+		{
+			print(AlertTag.TANNER_RESTAURANT, "Give order to cook");
+			((TannerRestaurantCook) restaurant.getCook()).msgHereIsANewOrder(c.order, c.tableNumber, this);
+		}
 		c.currentState = customerState.eating;
 	}
 	
@@ -512,7 +516,7 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		cashier.msgComputeBill(c.order, c.customer, this);
+		((TannerRestaurantCashier) restaurant.getCashier()).msgComputeBill(c.order, c.customer, this);
 		c.currentState = customerState.checkComputing;
 	}
 	
@@ -546,13 +550,13 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 	
 	private void AskForBreak()
 	{
-		myGUI.DoGoToFront();
+		/*myGUI.DoGoToFront();
 		try {
 			doingAction.acquire();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		print(AlertTag.TANNER_RESTAURANT, "Ask For break");
 		//((TannerRestaurantHost) host).msgIWantToGoOnBreak(this);
 		wantBreak = false;
@@ -560,14 +564,13 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 		
 	private void TakeBreak()
 	{
-		myGUI.DoGoToFront();
+		/*myGUI.DoGoToFront();
 		try {
 			doingAction.acquire();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		;
+		}*/
 
 		breakTimer.schedule(new TimerTask() {
 			public void run()
