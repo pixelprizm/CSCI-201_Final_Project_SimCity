@@ -51,7 +51,7 @@ public class TannerRestaurantCookRole extends RestaurantCookRole implements Tann
 		name_ = name;
 		orders = new ArrayList<Order>();
 		marketOrders = new ArrayList<MarketOrder>();
-		doingAction = new Semaphore(1, true);	
+		doingAction = new Semaphore(0, true);	
 		this.cashier = cashier;
 		restaurant = rest;
 		markets = Directory.markets().get(0);

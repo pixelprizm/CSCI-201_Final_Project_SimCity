@@ -25,6 +25,7 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
     Image shared = b.getImage();
     int xGap = 17;
     int yGap = 27;
+    boolean moving;
 
 	public TannerRestaurantWaiterRoleGui(TannerRestaurantWaiter newWaiter, int waiter_count) 
 	{
@@ -34,6 +35,7 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
 		yPos = 80;
 		xDestination = 80;
 		yDestination = 80;
+		moving = false;
 	}
 
 	@Override
@@ -50,7 +52,12 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
             yPos--;
         
         if (xPos == xDestination && yPos == yDestination) {
-        	agent.msgAnimationFinished();
+        	if(moving)
+        	{
+        		agent.msgAnimationFinished();
+        		moving = false;
+        		DoGoHome();
+        	}
 		}
 	}
 
@@ -78,28 +85,32 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
 
 	public void DoGoToFront() 
 	{
-		xDestination = 80;
-		yDestination = 80;
+		xDestination = 110;
+		yDestination = 40;
+		moving = true;
 	}
 
 	public void DoGoToTable(int tableNumber) 
 	{
-		if(tableNumber == 1)
+		if(tableNumber == 0)
 		{
 			xDestination = 150;
 			yDestination = 120;
+			moving = true;
+		}
+		
+		if(tableNumber == 1)
+		{
+			xDestination = 270;
+			yDestination = 120;
+			moving = true;
 		}
 		
 		if(tableNumber == 2)
 		{
-			xDestination = 270;
-			yDestination = 120;
-		}
-		
-		if(tableNumber == 3)
-		{
 			xDestination = 390;
 			yDestination = 120;
+			moving = true;
 		}
 	}
 
@@ -107,12 +118,21 @@ public class TannerRestaurantWaiterRoleGui implements Gui {
 	{
 		xDestination = 515;
 		yDestination = 100;
+		moving = true;
 	}
 
 	public void DoGoToRevolvingStand() 
 	{
 		xDestination = 515;
 		yDestination = 200;
+		moving = true;
+	}
+	
+	public void DoGoHome()
+	{
+		xDestination = 80;
+		yDestination = 80;
 	}
 
 }
+

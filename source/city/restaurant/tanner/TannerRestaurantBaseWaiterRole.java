@@ -45,7 +45,7 @@ public abstract class TannerRestaurantBaseWaiterRole extends Role implements Tan
 		super(person);
 		name_ = name;
 		myCustomers = new ArrayList<MyCustomer>();
-		doingAction = new Semaphore(1, true);
+		doingAction = new Semaphore(0, true);
 		onBreak = false;
 		menu = new int[]{1, 2, 3, 4};
 		log = new utilities.EventLog();

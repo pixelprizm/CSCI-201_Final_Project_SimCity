@@ -22,6 +22,7 @@ public class TannerRestaurantCookRoleGui implements Gui {
     Image cook = a.getImage();
     int xGap = 18;
     int yGap = 32;
+    boolean moving;
 	
 
 	public TannerRestaurantCookRoleGui(TannerRestaurantCook cook) 
@@ -32,6 +33,7 @@ public class TannerRestaurantCookRoleGui implements Gui {
 		yPos = 100;
 		xDestination = 565;
 		yDestination = 100;
+		moving = false;
 	}
 
 	@Override
@@ -48,8 +50,11 @@ public class TannerRestaurantCookRoleGui implements Gui {
             yPos--;
         
         if (xPos == xDestination && yPos == yDestination) {
-        	
-        	agent.msgAnimationComplete();
+        	if(moving)
+        	{
+        		agent.msgAnimationComplete();
+        		moving = false;
+        	}
 		}
 	}
 
@@ -70,24 +75,34 @@ public class TannerRestaurantCookRoleGui implements Gui {
 	{
 		xDestination = 570;
 		yDestination = 200;
+		moving = true;
 	}
 
 	public void DoGoToIngredients() 
 	{
 		xDestination = 610;
 		yDestination = 260;
+		moving = true;
 	}
 
 	public void DoGoToGrills() 
 	{
 		xDestination = 610;
 		yDestination = 60;
+		moving = true;
 	}
 
 	public void DoGoToHeatLamp() 
 	{
 		xDestination = 565;
 		yDestination = 100;
+		moving = true;
+	}
+	
+	public void DoGoHome()
+	{
+		xDestination = 565;
+		yDestination = 565;
 	}
 
 }
