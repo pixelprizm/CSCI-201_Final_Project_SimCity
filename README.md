@@ -76,4 +76,4 @@ In "Bulid Path", choose "Use as a Source Folder"
 ####Known Issues
   - 1 restaurant not integrated (Tanner)
   - No collision detection in restaurants
-  - No parties and friend scenarios because we are a group of 5. 
+  - (No parties and friend scenarios because we are a group of 5, not 7.)
