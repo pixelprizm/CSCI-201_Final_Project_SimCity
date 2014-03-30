@@ -1,15 +1,15 @@
 Team18
 ======
 
-SimCity201 Project Repository for CS 201 students
+SimCity201 Project Repository for CSCI 201 students
 
 ###Run Instructions
 
 1. Download the project to the computer using either
-"git clone git@github.com:usc-csci201-fall2013/team18.git" or 
+```git clone git@github.com:usc-csci201-fall2013/team18.git``` or 
 https://github.com/usc-csci201-fall2013/team18/archive/master.zip
 
-2. Open eclipse and create a new java project.
+2. In the Eclipse IDE, create a new java project.
 Remember to include JRE System Library (JavaSE-1.7), and JUnit 4 Library
 
 3. Import "source" folder into the project. Right click the "source" folder.
@@ -18,8 +18,7 @@ In "Bulid Path", choose "Use as a Source Folder"
 4. Choose MainGui.java under source/gui. Click "Run as..." and choose 
 "Java Application" to run the program.
 
-5. To run scenarios, choose the Configuration tab at the top right corner, and select a configuration. Descriptions of each scenario will be displayed.  Make sure to click the start button once you have selected a scenario.  To run a second
- scenario, we recommend you quit the program and restart so as to assure they work correctly.
+5. To run scenarios, choose the Configuration tab at the top right corner, and select a configuration. Descriptions of each scenario will be displayed.  Make sure to click the start button once you have selected a scenario.  To run a second scenario, we recommend you quit and restart the program so as to assure they work correctly.
 
 ###V1 Deliverable Information
 
@@ -34,7 +33,7 @@ In "Bulid Path", choose "Use as a Source Folder"
   - Designed Directory
   - Integrated his Restaurant (including revolving stand, market interaction, bank interaction)
   - Implemented hacks in PersonAgent for running specific scenarios
-  - General helping with questions & issues
+  - General helping with others' questions & issues
   - Fixed naming conventions for v2
   - Bug fixing
 - Omar Khulusi (Team Leader)
