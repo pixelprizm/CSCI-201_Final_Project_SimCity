@@ -22,15 +22,18 @@ This is a simulation of a city, which supports a large number of autonomous agen
 ####Work Done by Each Person
 
 - Eric Gauderman (Integration Lead/Git Lead)
-  - Person Agent (sophisticated upgrade in v2)
+  - ```PersonAgent``` class (sophisticated upgrade in v2)
+    - ```sources/city/PersonAgent.java```
+    - Acquiring job, home, and customer roles
+    - Autonomous decision-making
+    - System for running forced scenarios
   - Home Scenarios (most importantly, HomeOccupantRole)
   - Integration, major contributor (with Omar and Yixin)
   - Instantiation of Person Agent with the correct job and house; use of factory methods to generate each person's correct job and home roles (with Yixin)
   - Design of program's architecture (i.e. packages and class hierarchy)
   - Designed ```Directory``` class
   - Integrated his Restaurant (including revolving stand, market interaction, bank interaction)
-  - Implemented system in PersonAgent for running forced scenarios
-  - General helping with other team members' questions & issues
+  - Helped with other team members' questions & issues
   - Specified and fixed naming conventions
   - Bug fixing and Git merge conflicts
 - Omar Khulusi (Team Leader)
