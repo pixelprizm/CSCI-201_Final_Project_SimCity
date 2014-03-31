@@ -138,9 +138,9 @@ public class PersonAgent extends Agent implements Person
 	private PersonInfoRefreshable _personInfoPanel;
 	
 	//Images
-    ImageIcon a;
-    ImageIcon b;
-    Image _picture;
+	ImageIcon a;
+	ImageIcon b;
+	Image _picture;
 	
 	
 	// ------------------------------------------- CONSTRUCTORS & SETUP --------------------------------------------
@@ -148,16 +148,6 @@ public class PersonAgent extends Agent implements Person
 	{
 		this(name, money, occupationType, weekday_notWeekend, housingType, personInfoPanel);
 		_actionsToDo.addAll(actionsToDo);
-		a = new ImageIcon(ImageAtlas.mapAtlas.get("MPerson"));
-		b = new ImageIcon(ImageAtlas.mapAtlas.get("FPerson"));
-    	Random generator = new Random();
-    	int i = generator.nextInt(2);
-    	if(i == 1){
-    		_picture = a.getImage();
-    	}
-    	else{
-    		_picture = b.getImage();
-    	}
 	}
 	// This constructor is for unit testing
 	public PersonAgent(String name) { _name = name; }
@@ -172,8 +162,6 @@ public class PersonAgent extends Agent implements Person
 	{
 		_name = name; 
 		_money = money;
-		a = new ImageIcon(ImageAtlas.mapAtlas.get("MPerson"));
-		b = new ImageIcon(ImageAtlas.mapAtlas.get("FPerson"));
 		_personInfoPanel = personInfoPanel;
 		// setWorkDays(weekday_notWeekend);
 		acquireOccupation(occupationType);
@@ -184,14 +172,17 @@ public class PersonAgent extends Agent implements Person
 		generateAndSetCommuterRole();
 		setNextRole(_homeOccupantRole);
 		
+		// Randomly choose between the two images to display in the city's view.
+		a = new ImageIcon(ImageAtlas.mapAtlas.get("MPerson"));
+		b = new ImageIcon(ImageAtlas.mapAtlas.get("FPerson"));
 		Random generator = new Random();
-    	int i = generator.nextInt(2);
-    	if(i == 1) {
-    		_picture = a.getImage();
-    	}
-    	else {
-    		_picture = b.getImage();
-    	}
+		int i = generator.nextInt(2);
+		if(i == 1) {
+			_picture = a.getImage();
+		}
+		else {
+			_picture = b.getImage();
+		}
 
 		if(_personInfoPanel != null) _personInfoPanel.refreshInfo(this);
 	}
