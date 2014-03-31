@@ -17,7 +17,7 @@ This is a simulation of a city, which supports a large number of autonomous agen
 
 5. To run scenarios, choose the Configuration tab at the top right corner, and select a configuration. Descriptions of each scenario will be displayed.  Make sure to click the start button once you have selected a scenario.  To run a second scenario, we recommend you quit and restart the program so as to assure they work correctly.
 
-###V1 Deliverable Information
+###V2 Deliverable Information
 
 ####Work Done by Each Person
 
